@@ -9,5 +9,10 @@ import UIKit
 
 class AdminAuthViewController: AuthViewController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Admin"
+    }
 }
 

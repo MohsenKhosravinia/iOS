@@ -8,12 +8,12 @@
 import UIKit
 
 protocol AuthViewFactory {
-    func createAuthView(for type: AuthType) -> AuthView
-    func createAuthViewController(for type: AuthType) -> AuthViewController
+    static func createAuthView(for type: AuthType) -> AuthView
+    static func createAuthViewController(for type: AuthType) -> AuthViewController
 }
 
 class AdminViewFactory: AuthViewFactory {
-    func createAuthView(for type: AuthType) -> AuthView {
+    static func createAuthView(for type: AuthType) -> AuthView {
         switch type {
         case .signup:
             return AdminSignUpView()
@@ -22,13 +22,13 @@ class AdminViewFactory: AuthViewFactory {
         }
     }
     
-    func createAuthViewController(for type: AuthType) -> AuthViewController {
-        AdminAuthViewController(contentView: createAuthView(for: type))
+    static func createAuthViewController(for type: AuthType) -> AuthViewController {
+        AdminAuthViewController(authView: createAuthView(for: type))
     }
 }
 
 class EmployeeViewFactory: AuthViewFactory {
-    func createAuthView(for type: AuthType) -> AuthView {
+    static func createAuthView(for type: AuthType) -> AuthView {
         switch type {
         case .signup:
             return EmployeeSignUpView()
@@ -37,7 +37,7 @@ class EmployeeViewFactory: AuthViewFactory {
         }
     }
     
-    func createAuthViewController(for type: AuthType) -> AuthViewController {
-        EmployeeAuthViewController(contentView: createAuthView(for: type))
+    static func createAuthViewController(for type: AuthType) -> AuthViewController {
+        EmployeeAuthViewController(authView: createAuthView(for: type))
     }
 }

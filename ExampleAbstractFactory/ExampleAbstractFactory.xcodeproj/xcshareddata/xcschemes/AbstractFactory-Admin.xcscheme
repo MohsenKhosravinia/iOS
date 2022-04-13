@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1320"
+   version = "1.3">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8F5FD5AD2806145E00F659CE"
+               BuildableName = "ExampleAbstractFactory.app"
+               BlueprintName = "ExampleAbstractFactory"
+               ReferencedContainer = "container:ExampleAbstractFactory.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Admin"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8F5FD5C32806145F00F659CE"
+               BuildableName = "ExampleAbstractFactoryTests.xctest"
+               BlueprintName = "ExampleAbstractFactoryTests"
+               ReferencedContainer = "container:ExampleAbstractFactory.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8F5FD5CD2806145F00F659CE"
+               BuildableName = "ExampleAbstractFactoryUITests.xctest"
+               BlueprintName = "ExampleAbstractFactoryUITests"
+               ReferencedContainer = "container:ExampleAbstractFactory.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Admin"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "8F5FD5AD2806145E00F659CE"
+            BuildableName = "ExampleAbstractFactory.app"
+            BlueprintName = "ExampleAbstractFactory"
+            ReferencedContainer = "container:ExampleAbstractFactory.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Admin"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "8F5FD5AD2806145E00F659CE"
+            BuildableName = "ExampleAbstractFactory.app"
+            BlueprintName = "ExampleAbstractFactory"
+            ReferencedContainer = "container:ExampleAbstractFactory.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Admin">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Admin"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

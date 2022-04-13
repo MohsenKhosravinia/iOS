@@ -19,6 +19,7 @@
 		8F5FD5E628061B4A00F659CE /* AuthViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5FD5E528061B4A00F659CE /* AuthViewFactory.swift */; };
 		8F5FD5E8280626F200F659CE /* EmployeeAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5FD5E7280626F200F659CE /* EmployeeAuthViewController.swift */; };
 		8F5FD5EA280629DB00F659CE /* AdminAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5FD5E9280629DB00F659CE /* AdminAuthViewController.swift */; };
+		8F5FD5ED2806EC3E00F659CE /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5FD5EC2806EC3E00F659CE /* Client.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8F5FD5E528061B4A00F659CE /* AuthViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewFactory.swift; sourceTree = "<group>"; };
 		8F5FD5E7280626F200F659CE /* EmployeeAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeAuthViewController.swift; sourceTree = "<group>"; };
 		8F5FD5E9280629DB00F659CE /* AdminAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAuthViewController.swift; sourceTree = "<group>"; };
+		8F5FD5EC2806EC3E00F659CE /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,16 +107,12 @@
 		8F5FD5B02806145E00F659CE /* ExampleAbstractFactory */ = {
 			isa = PBXGroup;
 			children = (
-				8F5FD5BF2806145F00F659CE /* Info.plist */,
-				8F5FD5E9280629DB00F659CE /* AdminAuthViewController.swift */,
-				8F5FD5B12806145E00F659CE /* AppDelegate.swift */,
 				8F5FD5E3280619F500F659CE /* AuthView.swift */,
-				8F5FD5B52806145E00F659CE /* AuthViewController.swift */,
 				8F5FD5E528061B4A00F659CE /* AuthViewFactory.swift */,
-				8F5FD5E7280626F200F659CE /* EmployeeAuthViewController.swift */,
-				8F5FD5B32806145E00F659CE /* SceneDelegate.swift */,
-				8F5FD5BA2806145F00F659CE /* Assets.xcassets */,
-				8F5FD5BC2806145F00F659CE /* LaunchScreen.storyboard */,
+				8F5FD5EC2806EC3E00F659CE /* Client.swift */,
+				8F5FD5EF2806EF7D00F659CE /* Resources */,
+				8F5FD5EE2806EF6700F659CE /* System */,
+				8F5FD5EB2806E93D00F659CE /* ViewControllers */,
 			);
 			path = ExampleAbstractFactory;
 			sourceTree = "<group>";
@@ -134,6 +132,35 @@
 				8F5FD5D42806145F00F659CE /* ExampleAbstractFactoryUITestsLaunchTests.swift */,
 			);
 			path = ExampleAbstractFactoryUITests;
+			sourceTree = "<group>";
+		};
+		8F5FD5EB2806E93D00F659CE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F5FD5B52806145E00F659CE /* AuthViewController.swift */,
+				8F5FD5E9280629DB00F659CE /* AdminAuthViewController.swift */,
+				8F5FD5E7280626F200F659CE /* EmployeeAuthViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8F5FD5EE2806EF6700F659CE /* System */ = {
+			isa = PBXGroup;
+			children = (
+				8F5FD5B12806145E00F659CE /* AppDelegate.swift */,
+				8F5FD5B32806145E00F659CE /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		8F5FD5EF2806EF7D00F659CE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8F5FD5BF2806145F00F659CE /* Info.plist */,
+				8F5FD5BA2806145F00F659CE /* Assets.xcassets */,
+				8F5FD5BC2806145F00F659CE /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +299,7 @@
 				8F5FD5B62806145E00F659CE /* AuthViewController.swift in Sources */,
 				8F5FD5B22806145E00F659CE /* AppDelegate.swift in Sources */,
 				8F5FD5E4280619F500F659CE /* AuthView.swift in Sources */,
+				8F5FD5ED2806EC3E00F659CE /* Client.swift in Sources */,
 				8F5FD5B42806145E00F659CE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +348,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8F5FD5D62806145F00F659CE /* Debug */ = {
+		8F5FD5D62806145F00F659CE /* Employee */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -376,12 +404,12 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = EMPLOYEE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = Employee;
 		};
-		8F5FD5D72806145F00F659CE /* Release */ = {
+		8F5FD5D72806145F00F659CE /* Admin */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -420,6 +448,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -430,13 +459,14 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = ADMIN;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Admin;
 		};
-		8F5FD5D92806145F00F659CE /* Debug */ = {
+		8F5FD5D92806145F00F659CE /* Employee */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -445,7 +475,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y57FY52VL4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ExampleAbstractFactory/Info.plist;
+				INFOPLIST_FILE = ExampleAbstractFactory/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -461,9 +491,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = Employee;
 		};
-		8F5FD5DA2806145F00F659CE /* Release */ = {
+		8F5FD5DA2806145F00F659CE /* Admin */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -472,7 +502,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y57FY52VL4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ExampleAbstractFactory/Info.plist;
+				INFOPLIST_FILE = ExampleAbstractFactory/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -488,9 +518,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Release;
+			name = Admin;
 		};
-		8F5FD5DC2806145F00F659CE /* Debug */ = {
+		8F5FD5DC2806145F00F659CE /* Employee */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -508,9 +538,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleAbstractFactory.app/ExampleAbstractFactory";
 			};
-			name = Debug;
+			name = Employee;
 		};
-		8F5FD5DD2806145F00F659CE /* Release */ = {
+		8F5FD5DD2806145F00F659CE /* Admin */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -528,9 +558,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleAbstractFactory.app/ExampleAbstractFactory";
 			};
-			name = Release;
+			name = Admin;
 		};
-		8F5FD5DF2806145F00F659CE /* Debug */ = {
+		8F5FD5DF2806145F00F659CE /* Employee */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -546,9 +576,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ExampleAbstractFactory;
 			};
-			name = Debug;
+			name = Employee;
 		};
-		8F5FD5E02806145F00F659CE /* Release */ = {
+		8F5FD5E02806145F00F659CE /* Admin */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -564,7 +594,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ExampleAbstractFactory;
 			};
-			name = Release;
+			name = Admin;
 		};
 /* End XCBuildConfiguration section */
 
@@ -572,38 +602,38 @@
 		8F5FD5A92806145D00F659CE /* Build configuration list for PBXProject "ExampleAbstractFactory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8F5FD5D62806145F00F659CE /* Debug */,
-				8F5FD5D72806145F00F659CE /* Release */,
+				8F5FD5D62806145F00F659CE /* Employee */,
+				8F5FD5D72806145F00F659CE /* Admin */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Admin;
 		};
 		8F5FD5D82806145F00F659CE /* Build configuration list for PBXNativeTarget "ExampleAbstractFactory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8F5FD5D92806145F00F659CE /* Debug */,
-				8F5FD5DA2806145F00F659CE /* Release */,
+				8F5FD5D92806145F00F659CE /* Employee */,
+				8F5FD5DA2806145F00F659CE /* Admin */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Admin;
 		};
 		8F5FD5DB2806145F00F659CE /* Build configuration list for PBXNativeTarget "ExampleAbstractFactoryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8F5FD5DC2806145F00F659CE /* Debug */,
-				8F5FD5DD2806145F00F659CE /* Release */,
+				8F5FD5DC2806145F00F659CE /* Employee */,
+				8F5FD5DD2806145F00F659CE /* Admin */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Admin;
 		};
 		8F5FD5DE2806145F00F659CE /* Build configuration list for PBXNativeTarget "ExampleAbstractFactoryUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8F5FD5DF2806145F00F659CE /* Debug */,
-				8F5FD5E02806145F00F659CE /* Release */,
+				8F5FD5DF2806145F00F659CE /* Employee */,
+				8F5FD5E02806145F00F659CE /* Admin */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Admin;
 		};
 /* End XCConfigurationList section */
 	};

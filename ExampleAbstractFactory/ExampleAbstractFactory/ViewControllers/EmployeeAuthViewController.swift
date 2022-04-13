@@ -9,5 +9,10 @@ import UIKit
 
 class EmployeeAuthViewController: AuthViewController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Employee"
+    }
 }
 
