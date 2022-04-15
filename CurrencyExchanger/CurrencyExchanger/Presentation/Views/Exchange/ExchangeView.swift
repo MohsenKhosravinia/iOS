@@ -25,12 +25,14 @@ class ExchangeView: UIView, NibLoadable {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupFromNib()
         commonInit()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
+        setupFromNib()
         commonInit()
     }
     
@@ -42,24 +44,30 @@ class ExchangeView: UIView, NibLoadable {
         switch type {
         case .sell:
             iconImageView.image = UIImage(systemName: "arrow.up")
-            iconImageView.tintColor = .systemRed
+            iconImageView.backgroundColor = .systemRed
             titleLabel.text = "Sell"
+            textField.placeholder = "e.g. 100.00"
         case .receive:
             iconImageView.image = UIImage(systemName: "arrow.down")
-            iconImageView.tintColor = .systemGreen
+            iconImageView.backgroundColor = .systemGreen
             titleLabel.text = "Receive"
+            textField.placeholder = "exchanged amount"
             textField.isUserInteractionEnabled = false
         }
+        
+        iconImageView.tintColor = .white
+        iconImageView.makeItCapsuleOrCircle()
+        
+        select(currency: currency)
     }
     
-    public func set(currency: CurrencyType) {
+    public func select(currency: CurrencyType) {
         currencySelectionButton.setTitle(currency.rawValue, for: .normal)
     }
     
     // MARK: - IBActions
     
     @IBAction func currencySelectionButtonTapped(_ sender: UIButton) {
-        print("Currency button Tapped")
         currencySelectionCallback?()
     }
     

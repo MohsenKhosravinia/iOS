@@ -12,10 +12,31 @@ protocol LocalRepository {
     var account: AccountModel { get set }
 }
 
+// MARK: - LocalRepository Declaration
+
 struct RealLocalRepository: LocalRepository {
-    public let userDefaults = UserDefaults.standard
+    
+    static let shared = RealLocalRepository()
+    
+    let userDefaults = UserDefaults.standard
     
     struct StorageKeys {
         static let account = "user.savings"
+    }
+}
+
+extension RealLocalRepository {
+    
+    var account: AccountModel {
+        get { loadAccount() }
+        set { saveAccount(newValue) }
+    }
+    
+    func saveAccount(_ account: AccountModel) {
+        
+    }
+    
+    private func loadAccount() -> AccountModel {
+        .init(savings: [.init(amount: "20000", currency: .eur)])
     }
 }
