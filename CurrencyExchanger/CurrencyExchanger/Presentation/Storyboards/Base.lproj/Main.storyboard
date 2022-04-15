@@ -23,19 +23,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNU-ED-wHa" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ikk-hB-1kO">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="440"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ikk-hB-1kO">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="380"/>
                                                 <subviews>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ea5-g1-41O">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="180" id="ilV-uy-07E"/>
+                                                            <constraint firstAttribute="height" constant="150" id="ilV-uy-07E"/>
                                                         </constraints>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xep-8x-tOH">
-                                                        <rect key="frame" x="0.0" y="200" width="414" height="240"/>
+                                                        <rect key="frame" x="0.0" y="150" width="414" height="230"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="240" id="ipZ-t4-NG3"/>
+                                                            <constraint firstAttribute="height" constant="230" id="ipZ-t4-NG3"/>
                                                         </constraints>
                                                     </containerView>
                                                 </subviews>
@@ -99,19 +99,20 @@
             <objects>
                 <viewController storyboardIdentifier="MyBalancesViewController" id="4aN-Dv-Pia" customClass="MyBalancesViewController" customModule="CurrencyExchanger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KDU-I5-Ibk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uCS-Ik-nWM">
-                                <rect key="frame" x="0.0" y="20" width="414" height="230"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uCS-Ik-nWM">
+                                <rect key="frame" x="0.0" y="20" width="414" height="130"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLV-qN-yiP">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY BALANCES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXA-Q8-udY">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="0.0" width="374" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="xbe-jm-c13"/>
+                                                    <constraint firstAttribute="height" constant="40" id="xbe-jm-c13"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -122,15 +123,13 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="SXA-Q8-udY" secondAttribute="trailing" constant="20" symbolic="YES" id="7i4-Ox-m0P"/>
                                             <constraint firstItem="SXA-Q8-udY" firstAttribute="top" secondItem="OLV-qN-yiP" secondAttribute="top" id="OUg-Pk-zft"/>
+                                            <constraint firstAttribute="bottom" secondItem="SXA-Q8-udY" secondAttribute="bottom" id="VwL-1g-4Yq"/>
                                             <constraint firstItem="SXA-Q8-udY" firstAttribute="leading" secondItem="OLV-qN-yiP" secondAttribute="leading" constant="20" symbolic="YES" id="cIv-jt-9HP"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jwe-6D-nR2">
-                                        <rect key="frame" x="0.0" y="110" width="414" height="120"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="C9Y-E7-OxQ"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="48" width="414" height="82"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Z8-72-1io">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -155,14 +154,14 @@
                             <constraint firstItem="uCS-Ik-nWM" firstAttribute="leading" secondItem="KDU-I5-Ibk" secondAttribute="leading" id="aLU-Ph-bwB"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="250"/>
+                    <size key="freeformSize" width="414" height="150"/>
                     <connections>
                         <outlet property="collectionView" destination="Jwe-6D-nR2" id="Iif-ss-3HU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YC7-GR-m4X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="812" y="-121"/>
+            <point key="canvasLocation" x="811.59420289855075" y="-121.20535714285714"/>
         </scene>
         <!--Currency Exchange View Controller-->
         <scene sceneID="mgS-Pr-NXt">
@@ -176,12 +175,13 @@
                                 <rect key="frame" x="16" y="20" width="382" height="210"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fv-Em-eda">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENCY EXCHANGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHd-ej-xon">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="CqQ-Sv-2LB"/>
+                                                    <constraint firstAttribute="height" constant="40" id="CqQ-Sv-2LB"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -241,6 +241,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -7,44 +7,6 @@
 
 import UIKit
 
-protocol BalanceInteractor {
-    func getAccount() -> AccountModel
-}
-
-final class DefaultBalanceInteractor: BalanceInteractor {
-    
-    let localRepository: LocalRepository
-    
-    init(localRepository: LocalRepository) {
-        self.localRepository = localRepository
-    }
-    
-    func getAccount() -> AccountModel {
-        // FIXME: REMOVE MOCK MODEL
-        AccountModel(savings: [.init(amount: "1000", currency: .eur),
-                               .init(amount: "2000", currency: .usd),
-                               .init(amount: "0", currency: .jpy)])
-//        localRepository.account
-    }
-}
-
-protocol MyBalancesViewModel {
-    var account: AccountModel { get }
-}
-
-final class DefaultMyBalancesViewModel: MyBalancesViewModel {
-    
-    private let interactor: BalanceInteractor
-    
-    var account: AccountModel {
-        interactor.getAccount()
-    }
-    
-    init(interactor: BalanceInteractor) {
-        self.interactor = interactor
-    }
-}
-
 class MyBalancesViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -69,6 +31,9 @@ class MyBalancesViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = layout
+        collectionView.contentInset.left = Constants.contentHorizontalInset
+        collectionView.contentInset.right = Constants.contentHorizontalInset
+        collectionView.showsHorizontalScrollIndicator = false
     }
 
 }
@@ -95,11 +60,27 @@ extension MyBalancesViewController: UICollectionViewDelegate, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let text = viewModel.account.savings[indexPath.item].concatenated()
-        let padding: CGFloat = 30
-        return .init(width: text.widht + padding, height: 90)
+        let padding: CGFloat = Constants.widthPadding
+        let height: CGFloat = Constants.cellHeight
+        let width = text.width(withConstrainedHeight: height,
+                               font: .systemFont(ofSize: Constants.fontSize))
+        return .init(width: width + padding, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        50
+        Constants.minimumInterItemWidth
+    }
+}
+
+// MARK: - Constants
+
+extension MyBalancesViewController {
+    
+    private enum Constants {
+        static let widthPadding: CGFloat = 30
+        static let cellHeight: CGFloat = 80
+        static let fontSize: CGFloat = 14
+        static let contentHorizontalInset: CGFloat = 20
+        static let minimumInterItemWidth: CGFloat = 50
     }
 }

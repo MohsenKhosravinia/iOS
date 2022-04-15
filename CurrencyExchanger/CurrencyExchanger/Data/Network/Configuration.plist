@@ -5,20 +5,16 @@
 	<key>Release</key>
 	<dict>
 		<key>scheme</key>
-		<string>https</string>
+		<string>http</string>
 		<key>host</key>
-		<string>staging.vaiyo.io</string>
-		<key>port</key>
-		<real>8081</real>
+		<string>api.evp.lt</string>
 	</dict>
 	<key>Debug</key>
 	<dict>
 		<key>scheme</key>
-		<string>https</string>
+		<string>http</string>
 		<key>host</key>
-		<string>staging.vaiyo.io</string>
-		<key>port</key>
-		<real>8081</real>
+		<string>api.evp.lt</string>
 	</dict>
 </dict>
 </plist>

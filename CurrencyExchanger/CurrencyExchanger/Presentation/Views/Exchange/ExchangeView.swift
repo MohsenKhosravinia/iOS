@@ -55,6 +55,8 @@ class ExchangeView: UIView, NibLoadable {
             textField.isUserInteractionEnabled = false
         }
         
+        textField.textAlignment = .right
+        
         iconImageView.tintColor = .white
         iconImageView.makeItCapsuleOrCircle()
         

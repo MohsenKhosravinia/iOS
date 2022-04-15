@@ -37,6 +37,16 @@ extension RealLocalRepository {
     }
     
     private func loadAccount() -> AccountModel {
-        .init(savings: [.init(amount: "20000", currency: .eur)])
+        if let accountString = userDefaults.string(forKey: StorageKeys.account) {
+            do {
+                return try JSONDecoder().decode(AccountModel.self, from: Data(accountString.utf8))
+            } catch {
+                return .init(savings: [])
+            }
+        } else {
+            return .init(savings: [.init(amount: "1000.00", currency: .eur),
+                                   .init(amount: "0.00", currency: .usd),
+                                   .init(amount: "0.00", currency: .jpy),])
+        }
     }
 }

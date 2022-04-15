@@ -12,7 +12,7 @@ struct EndPoint {
     var queryItems: [String: Any] = [:]
 }
 
-extension EndPoint: TokenManageable {
+extension EndPoint {
     /// setting up url with queries if there is any
     ///
     var url: URL {
@@ -53,21 +53,5 @@ extension EndPoint: TokenManageable {
     var baseHeaders: Headers {
         ["Accept": "application/json",
          "Content-Type": "application/json"]
-    }
-    
-    /// authorization headers (include bearer token) for simple json responses
-    /// returns [String: Any] dictionary aka typealiase headers
-    var authorizationHeaders: Headers {
-        ["Accept": "application/json",
-         "Content-Type": "application/json",
-         "Authorization": "Bearer \(token)"]
-    }
-    
-    /// authorization headers (include bearer token) for multipart/form data
-    /// returns [String: Any] dictionary aka typealiase headers
-    var multipartHeaders: Headers {
-        ["accept": "*/*",
-         "Content-Type": "multipart/form-data",
-         "Authorization": "Bearer \(token)"]
     }
 }
