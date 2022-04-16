@@ -18,7 +18,8 @@ class ExchangeView: UIView, NibLoadable {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var currencySelectionButton: UIButton!
     
-    public var currencySelectionCallback: (() -> Void)?
+    public var currencyType: CurrencyType = .usd
+    public var currencySelectionCallback: ((CurrencyType) -> Void)?
     
     // MARK: - Initializers
     
@@ -41,17 +42,21 @@ class ExchangeView: UIView, NibLoadable {
     private func commonInit() {}
     
     public func setupViews(forType type: ExchangeViewType, currency: CurrencyType) {
+        currencyType = currency
+        
         switch type {
         case .sell:
             iconImageView.image = UIImage(systemName: "arrow.up")
             iconImageView.backgroundColor = .systemRed
             titleLabel.text = "Sell"
             textField.placeholder = "e.g. 100.00"
+            textField.textColor = .black
         case .receive:
             iconImageView.image = UIImage(systemName: "arrow.down")
             iconImageView.backgroundColor = .systemGreen
             titleLabel.text = "Receive"
             textField.placeholder = "exchanged amount"
+            textField.textColor = .systemGreen
             textField.isUserInteractionEnabled = false
         }
         
@@ -64,13 +69,22 @@ class ExchangeView: UIView, NibLoadable {
     }
     
     public func select(currency: CurrencyType) {
+        currencyType = currency
         currencySelectionButton.setTitle(currency.rawValue, for: .normal)
+    }
+    
+    public func set(amount: String) {
+        textField.text = amount
+    }
+    
+    public func clear() {
+        textField.text = ""
     }
     
     // MARK: - IBActions
     
     @IBAction func currencySelectionButtonTapped(_ sender: UIButton) {
-        currencySelectionCallback?()
+        currencySelectionCallback?(currencyType)
     }
     
 }

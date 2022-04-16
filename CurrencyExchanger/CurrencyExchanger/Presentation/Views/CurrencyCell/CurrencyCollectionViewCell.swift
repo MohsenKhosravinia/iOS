@@ -19,6 +19,8 @@ class CurrencyCollectionViewCell: UICollectionViewCell {
     
     public func fill(deposit: DepositModel) {
         titleLabel.text = deposit.concatenated()
+        contentView.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.2)
+        contentView.setCorner(radius: 10)
     }
     
     private func reset() {

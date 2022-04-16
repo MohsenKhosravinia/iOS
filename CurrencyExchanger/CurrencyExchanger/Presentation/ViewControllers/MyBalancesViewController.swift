@@ -23,6 +23,10 @@ class MyBalancesViewController: UIViewController {
         self.viewModel = viewModel
     }
     
+    public func reload() {
+        collectionView.reloadData()
+    }
+    
     private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -35,7 +39,7 @@ class MyBalancesViewController: UIViewController {
         collectionView.contentInset.right = Constants.contentHorizontalInset
         collectionView.showsHorizontalScrollIndicator = false
     }
-
+    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -48,7 +52,6 @@ extension MyBalancesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeue(CurrencyCollectionViewCell.self, indexPath: indexPath)
-        cell.contentView.backgroundColor = .systemMint
         cell.fill(deposit: viewModel.account.savings[indexPath.item])
         return cell
     }
@@ -77,10 +80,10 @@ extension MyBalancesViewController: UICollectionViewDelegate, UICollectionViewDe
 extension MyBalancesViewController {
     
     private enum Constants {
-        static let widthPadding: CGFloat = 30
+        static let widthPadding: CGFloat = 50
         static let cellHeight: CGFloat = 80
         static let fontSize: CGFloat = 14
         static let contentHorizontalInset: CGFloat = 20
-        static let minimumInterItemWidth: CGFloat = 50
+        static let minimumInterItemWidth: CGFloat = 30
     }
 }
