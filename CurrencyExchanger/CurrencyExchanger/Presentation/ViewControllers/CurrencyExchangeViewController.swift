@@ -49,9 +49,10 @@ class CurrencyExchangeViewController: UIViewController {
         
         viewModel?.exchangeExecutionPublisher
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { [weak self] account in
+            .sink(receiveValue: { [weak self] transaction in
                 guard let self = self else { return }
-                self.exchangePublisher.send(account)
+                self.presentAlert(message: transaction.description, title: "Currency converted")
+                self.exchangePublisher.send(transaction.account)
                 self.receiveExchangeView.clear()
                 self.sellExchangeView.clear()
             })
@@ -59,9 +60,9 @@ class CurrencyExchangeViewController: UIViewController {
         
         viewModel?.errorPublisher
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { [weak self] error in
+            .sink(receiveValue: { [weak self] errorMessage in
                 guard let self = self else { return }
-                self.presentAlert(message: error.localizedDescription)
+                self.presentAlert(message: errorMessage)
             })
             .store(in: &cancellables)
         
@@ -78,9 +79,9 @@ class CurrencyExchangeViewController: UIViewController {
             .store(in: &cancellables)
     }
     
-    private func presentAlert(message: String) {
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alertController.addAction(.init(title: "OK", style: .destructive, handler: nil))
+    private func presentAlert(message: String, title: String? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(.init(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true)
     }
     
@@ -127,16 +128,16 @@ class CurrencyExchangeViewController: UIViewController {
     }
     
     private func executeExchange() {
-        guard let sellInputText = sellExchangeView.textField.text,
-              let amount = Double(sellInputText) else { return }
+        guard let sellInputText = sellExchangeView.textField.text else { return }
+        let amount = sellInputText.asDouble
         let fromType = sellExchangeView.currencyType
         let toType = receiveExchangeView.currencyType
         viewModel?.submitExchange(amount: amount, fromType: fromType, toType: toType)
     }
     
     private func calculateExchange() {
-        guard let sellInputText = sellExchangeView.textField.text,
-              let amount = Double(sellInputText) else { return }
+        guard let sellInputText = sellExchangeView.textField.text else { return }
+        let amount = sellInputText.asDouble
         let fromType = sellExchangeView.currencyType
         let toType = receiveExchangeView.currencyType
         viewModel?.calculateExchange(amount: amount, fromType: fromType, toType: toType)

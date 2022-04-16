@@ -15,6 +15,8 @@
 		8F2C9A10280B3355002F4C16 /* MockLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A0F280B3355002F4C16 /* MockLocalRepository.swift */; };
 		8F2C9A12280B3395002F4C16 /* ExchangeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A11280B3395002F4C16 /* ExchangeInteractorTests.swift */; };
 		8F2C9A14280B3C66002F4C16 /* ExchangeWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A13280B3C66002F4C16 /* ExchangeWebRepository.swift */; };
+		8F2C9A16280B5849002F4C16 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A15280B5849002F4C16 /* TransactionModel.swift */; };
+		8F2C9A18280B627B002F4C16 /* LimitedDecimalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A17280B627B002F4C16 /* LimitedDecimalTextField.swift */; };
 		8F634B322809A0BF006071BD /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B782808C29D00C13FA5 /* ServiceProtocol.swift */; };
 		8F634B332809A0C7006071BD /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B762808C29000C13FA5 /* NetworkController.swift */; };
 		8F634B342809A0D0006071BD /* NetworkControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B772808C29600C13FA5 /* NetworkControllerProtocol.swift */; };
@@ -109,6 +111,8 @@
 		8F2C9A0F280B3355002F4C16 /* MockLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocalRepository.swift; sourceTree = "<group>"; };
 		8F2C9A11280B3395002F4C16 /* ExchangeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeInteractorTests.swift; sourceTree = "<group>"; };
 		8F2C9A13280B3C66002F4C16 /* ExchangeWebRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeWebRepository.swift; sourceTree = "<group>"; };
+		8F2C9A15280B5849002F4C16 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		8F2C9A17280B627B002F4C16 /* LimitedDecimalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedDecimalTextField.swift; sourceTree = "<group>"; };
 		8F634B362809A216006071BD /* Data+PrettyPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+PrettyPrint.swift"; sourceTree = "<group>"; };
 		8F634B382809A458006071BD /* UICollectionView+RegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+RegisterCell.swift"; sourceTree = "<group>"; };
 		8F634B3A2809A48C006071BD /* UICollectionView+DequeueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+DequeueCell.swift"; sourceTree = "<group>"; };
@@ -321,9 +325,10 @@
 		8F920B672808BF9600C13FA5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8F2C9A17280B627B002F4C16 /* LimitedDecimalTextField.swift */,
+				8F920BB92808EF5B00C13FA5 /* NibLoadable.swift */,
 				8F634B3C2809A4F6006071BD /* CurrencyCell */,
 				8F920BB82808EF4A00C13FA5 /* Exchange */,
-				8F920BB92808EF5B00C13FA5 /* NibLoadable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -331,9 +336,9 @@
 		8F920B682808BFA900C13FA5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				8F920B33280857E800C13FA5 /* SceneDelegate.swift */,
 				8F920B31280857E800C13FA5 /* AppDelegate.swift */,
 				8F634B60280AFFD8006071BD /* DependencyInjector.swift */,
+				8F920B33280857E800C13FA5 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 				8F920B712808C06100C13FA5 /* DepositModel.swift */,
 				8F920B802808C46C00C13FA5 /* AccountModel.swift */,
 				8F634B4D280A0309006071BD /* ExchangeModel.swift */,
+				8F2C9A15280B5849002F4C16 /* TransactionModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -728,6 +734,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F2C9A16280B5849002F4C16 /* TransactionModel.swift in Sources */,
 				8F634B4E280A0309006071BD /* ExchangeModel.swift in Sources */,
 				8F920BB62808EEF800C13FA5 /* ExchangeView.swift in Sources */,
 				8F634B422809FB7C006071BD /* String+Size.swift in Sources */,
@@ -741,6 +748,7 @@
 				8F634B5C280AF2A7006071BD /* Float+ShortValue.swift in Sources */,
 				8F634B322809A0BF006071BD /* ServiceProtocol.swift in Sources */,
 				8F634B5A280A4122006071BD /* UITextField+TextPublisher.swift in Sources */,
+				8F2C9A18280B627B002F4C16 /* LimitedDecimalTextField.swift in Sources */,
 				8F634B58280A36ED006071BD /* String+ToDouble.swift in Sources */,
 				8F634B49280A01E9006071BD /* Endpoints.swift in Sources */,
 				8F634B4C280A0266006071BD /* URLConfiguration.swift in Sources */,

@@ -14,7 +14,7 @@ protocol ExchangeInteractor {
     func calculateExchange(_ input: ExchangeModel,
                            completion: @escaping (Result<DepositModel, ExchangeError>) -> Void)
     func executeExchange(_ input: ExchangeModel,
-                         completion: @escaping (Result<AccountModel, ExchangeError>) -> Void)
+                         completion: @escaping (Result<TransactionModel, ExchangeError>) -> Void)
 }
 
 final class DefaultExchangeInteractor: ExchangeInteractor {
@@ -38,12 +38,12 @@ final class DefaultExchangeInteractor: ExchangeInteractor {
     }
     
     func executeExchange(_ input: ExchangeModel,
-                         completion: @escaping (Result<AccountModel, ExchangeError>) -> Void) {
+                         completion: @escaping (Result<TransactionModel, ExchangeError>) -> Void) {
         let commissionFee = getCommission(for: input)
         
         let savedAmount = account[input.source]?.amount?.asDouble ?? 0
         
-        if (input.amount - commissionFee) < savedAmount {
+        if (input.amount + commissionFee) > savedAmount {
             completion(.failure(ExchangeError.insufficientFund))
             return
         }
@@ -53,25 +53,31 @@ final class DefaultExchangeInteractor: ExchangeInteractor {
             
             switch result {
             case .success(let receivedDeposit):
-                var accounts = self.account
+                var accountInfo = self.account
                 
-                guard var soldDeposit = accounts[input.source],
+                guard var soldDeposit = accountInfo[input.source],
                       let soldDepositAmount = soldDeposit.amount?.asDouble else { return }
                 
                 let newAmountValue = soldDepositAmount - (input.amount + commissionFee)
                 soldDeposit.changeAmount(toValue: newAmountValue)
                 
-                if let index: Int = accounts.savings.firstIndex(of: soldDeposit) {
-                    accounts.savings[index] = soldDeposit
+                if let index: Int = accountInfo.savings.firstIndex(of: soldDeposit) {
+                    accountInfo.savings[index] = soldDeposit
                 }
                 
-                if let index: Int = accounts.savings.firstIndex(of: receivedDeposit) {
-                    accounts.savings[index] = receivedDeposit
+                if let index: Int = accountInfo.savings.firstIndex(of: receivedDeposit) {
+                    accountInfo.savings[index] = receivedDeposit
                 }
                 
-                self.account = accounts
+                self.account = accountInfo
                 
-                completion(.success(accounts))
+                let inputDeposit = DepositModel(amount: String(input.amount), currency: input.source)
+                let transaction = TransactionModel(account: accountInfo,
+                                                   input: inputDeposit,
+                                                   output: receivedDeposit,
+                                                   commission: commissionFee)
+                
+                completion(.success(transaction))
                 
             case .failure(let error):
                 completion(.failure(error))
