@@ -77,24 +77,3 @@ class CommissionCalculatorTests: XCTestCase {
         XCTAssertEqual(commissionFee, desiredCommissionFee)
     }
 }
-
-// MARK: - MOCK
-
-private extension CommissionCalculatorTests {
-    
-    class MockLocalRepository: LocalRepository {
-        var userDefaults: UserDefaults { UserDefaults.standard }
-        var commissionFreeRemainingTimes: Int = 0
-        
-        var account: AccountModel {
-            get {
-                let mockSavings: [DepositModel] = [.init(amount: "1000", currency: .eur),
-                                                   .init(amount: "0", currency: .usd),
-                                                   .init(amount: "1000", currency: .jpy)]
-                return AccountModel(savings: mockSavings)
-            }
-            set {}
-        }
-    }
-    
-}
