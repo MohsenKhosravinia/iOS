@@ -13,39 +13,93 @@ class ExchangeInteractorTests: XCTestCase {
     
     var exchangeInteractor: ExchangeInteractor!
     
+    var mockLocalRepository: LocalRepository!
+
     override func setUp() {
         super.setUp()
         
-        let mockWebRepository = MockExchangeWebRepository()
-        let mockLocalRepository = MockLocalRepository()
-        exchangeInteractor = DefaultExchangeInteractor(webRepository: mockWebRepository,
-                                                       localRepository: mockLocalRepository)
+        mockLocalRepository = MockLocalRepository()
     }
     
     override func tearDown() {
-        exchangeInteractor = nil
+        mockLocalRepository = nil
         
         super.tearDown()
     }
-
+    
     func test_exchangeInteractorCalculateExchange_calculatesCorrectly() {
         let exchangeModel = ExchangeModel(amount: 100,
                                           source: .usd,
                                           destination: .eur)
+        let sut = makeExchangeInteractor(with: MockSuccessExchangeWebRepository())
         
         let expectation = expectation(description: "")
-        exchangeInteractor.calculateExchange(exchangeModel, completion: <#T##(Result<DepositModel, ExchangeError>) -> Void#>)
+        var depositModel: DepositModel!
+        sut.calculateExchange(exchangeModel) { result in
+            switch result {
+            case .success(let deposit):
+                depositModel = deposit
+            case .failure:
+                break
+            }
+            
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertEqual(depositModel.amount, "90")
+    }
+
+    
+    func test_exchangeInteractorCalculateExchange_failsProperly() {
+        let exchangeModel = ExchangeModel(amount: 100,
+                                          source: .usd,
+                                          destination: .eur)
+        let sut = makeExchangeInteractor(with: MockFailureExchangeWebRepository())
+        
+        let expectation = expectation(description: "")
+        var desiredError: ExchangeError!
+        sut.calculateExchange(exchangeModel) { result in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                desiredError = error
+            }
+            
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertEqual(desiredError, ExchangeError.failedExchange)
+    }
+
+    // MARK: Factory
+    
+    private func makeExchangeInteractor(with webRepository: ExchangeWebRepository) -> ExchangeInteractor {
+        DefaultExchangeInteractor(webRepository: webRepository, localRepository: mockLocalRepository)
     }
 
 }
 
-final class MockExchangeWebRepository: ExchangeWebRepository {
+// MARK: - Mocks
+
+final class MockSuccessExchangeWebRepository: ExchangeWebRepository {
     var networkController: NetworkControllerProtocol = MockNetworkController()
     
     func exchange(_ model: ExchangeModel) -> AnyPublisher<DepositModel, Error> {
         let depositModel = DepositModel(amount: "90", currency: .eur)
         return Just(depositModel)
             .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+}
+
+final class MockFailureExchangeWebRepository: ExchangeWebRepository {
+    var networkController: NetworkControllerProtocol = MockNetworkController()
+    
+    func exchange(_ model: ExchangeModel) -> AnyPublisher<DepositModel, Error> {
+        return Fail(error: ExchangeError.failedExchange)
             .eraseToAnyPublisher()
     }
 }

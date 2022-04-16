@@ -11,9 +11,9 @@ import Combine
 protocol ExchangeInteractor {
     var account: AccountModel { get }
     
-    func calculateExchange(_ model: ExchangeModel,
+    func calculateExchange(_ input: ExchangeModel,
                            completion: @escaping (Result<DepositModel, ExchangeError>) -> Void)
-    func executeExchange(_ model: ExchangeModel,
+    func executeExchange(_ input: ExchangeModel,
                          completion: @escaping (Result<AccountModel, ExchangeError>) -> Void)
 }
 
@@ -32,26 +32,33 @@ final class DefaultExchangeInteractor: ExchangeInteractor {
         self.localRepository = localRepository
     }
     
-    func calculateExchange(_ model: ExchangeModel,
+    func calculateExchange(_ input: ExchangeModel,
                            completion: @escaping (Result<DepositModel, ExchangeError>) -> Void) {
-        callExchangeAPI(model, completion: completion)
+        callExchangeAPI(input, completion: completion)
     }
     
-    func executeExchange(_ model: ExchangeModel,
+    func executeExchange(_ input: ExchangeModel,
                          completion: @escaping (Result<AccountModel, ExchangeError>) -> Void) {
-        let commissionFee = getCommission(for: model)
+        let commissionFee = getCommission(for: input)
         
-        callExchangeAPI(model) { [weak self] result in
+        let savedAmount = account[input.source]?.amount?.asDouble ?? 0
+        
+        if (input.amount - commissionFee) < savedAmount {
+            completion(.failure(ExchangeError.insufficientFund))
+            return
+        }
+        
+        callExchangeAPI(input) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let receivedDeposit):
                 var accounts = self.account
                 
-                guard var soldDeposit = accounts.savings.first(where: { $0.currency == model.source }),
+                guard var soldDeposit = accounts[input.source],
                       let soldDepositAmount = soldDeposit.amount?.asDouble else { return }
                 
-                let newAmountValue = soldDepositAmount - (model.amount + commissionFee)
+                let newAmountValue = soldDepositAmount - (input.amount + commissionFee)
                 soldDeposit.changeAmount(toValue: newAmountValue)
                 
                 if let index: Int = accounts.savings.firstIndex(of: soldDeposit) {
@@ -80,9 +87,8 @@ final class DefaultExchangeInteractor: ExchangeInteractor {
                 switch completionExchange {
                 case .finished:
                     print("finished exchaning")
-                case .failure(let error):
+                case .failure:
                     completion(.failure(ExchangeError.failedExchange))
-                    assertionFailure("Couldn't exchange because of: \(error.localizedDescription)")
                 }
             } receiveValue: { deposit in
                 completion(.success(deposit))
