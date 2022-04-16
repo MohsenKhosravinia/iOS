@@ -11,6 +11,8 @@ final class DependencyInjector {
     
     static let container = DependencyInjector()
     
+    private init() {}
+    
     func createMyBalancesVC() -> MyBalancesViewController {
         let viewController = UIStoryboard.main.instantiate(viewController: MyBalancesViewController.self)
         let localRepository = RealLocalRepository.shared
