@@ -9,15 +9,23 @@ import UIKit
 
 class MyBalancesViewController: UIViewController {
 
+    // MARK: IBOutlets
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: Properties
+    
     private var viewModel: MyBalancesViewModel!
+    
+    // MARK: Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionView()
     }
+    
+    // MARK: Methods
     
     public func fill(viewModel: MyBalancesViewModel) {
         self.viewModel = viewModel

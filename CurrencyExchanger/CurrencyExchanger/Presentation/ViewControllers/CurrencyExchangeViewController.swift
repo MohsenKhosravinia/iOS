@@ -15,10 +15,14 @@ class CurrencyExchangeViewController: UIViewController {
     @IBOutlet weak var sellExchangeView: ExchangeView!
     @IBOutlet weak var receiveExchangeView: ExchangeView!
     
+    // MARK: Properties
+    
     public var exchangePublisher = PassthroughSubject<AccountModel, Never>()
     
     private var viewModel: CurrencyExchangeViewModel?
     private var cancellables = Set<AnyCancellable>()
+    
+    // MARK: Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,8 @@ class CurrencyExchangeViewController: UIViewController {
         setupCallbacks()
         setupBindings()
     }
+    
+    // MARK: Methods
     
     public func fill(viewModel: CurrencyExchangeViewModel) {
         self.viewModel = viewModel
@@ -136,10 +142,9 @@ class CurrencyExchangeViewController: UIViewController {
         viewModel?.calculateExchange(amount: amount, fromType: fromType, toType: toType)
     }
     
-    // MARK: - IBActions
+    // MARK: IBActions
     
     @IBAction private func submitButtonTapped(_ sender: UIButton) {
         executeExchange()
     }
-
 }

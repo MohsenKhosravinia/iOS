@@ -21,23 +21,11 @@ class MainViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     
     private lazy var myBalancesViewController: MyBalancesViewController = {
-        let viewController = UIStoryboard.main.instantiate(viewController: MyBalancesViewController.self)
-        let localRepository = RealLocalRepository.shared
-        let interactor = DefaultBalanceInteractor(localRepository: localRepository)
-        let viewModel = DefaultMyBalancesViewModel(interactor: interactor)
-        viewController.fill(viewModel: viewModel)
-        return viewController
+        DependencyInjector.container.createMyBalancesVC()
     }()
     
     private lazy var currencyExchangeViewController: CurrencyExchangeViewController = {
-        let viewController = UIStoryboard.main.instantiate(viewController: CurrencyExchangeViewController.self)
-        let networkController = NetworkController()
-        let webRepository = DefaultExchangeWebRepository(networkController: networkController)
-        let localRepository = RealLocalRepository.shared
-        let interactor = DefaultExchangeInteractor(webRepository: webRepository, localRepository: localRepository)
-        let viewModel = DefaultCurrencyExchangeViewModel(interactor: interactor)
-        viewController.fill(viewModel: viewModel)
-        return viewController
+        DependencyInjector.container.createCurrencyExchangeVC()
     }()
     
     // MARK: Life cycle
@@ -70,5 +58,4 @@ class MainViewController: UIViewController {
             }
             .store(in: &cancellables)
     }
-
 }

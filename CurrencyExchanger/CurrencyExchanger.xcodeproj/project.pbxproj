@@ -37,6 +37,7 @@
 		8F634B5A280A4122006071BD /* UITextField+TextPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B59280A4122006071BD /* UITextField+TextPublisher.swift */; };
 		8F634B5C280AF2A7006071BD /* Float+ShortValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B5B280AF2A7006071BD /* Float+ShortValue.swift */; };
 		8F634B5F280AF409006071BD /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B5E280AF409006071BD /* CustomNavigationController.swift */; };
+		8F634B61280AFFD8006071BD /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B60280AFFD8006071BD /* DependencyInjector.swift */; };
 		8F920B32280857E800C13FA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B31280857E800C13FA5 /* AppDelegate.swift */; };
 		8F920B34280857E800C13FA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B33280857E800C13FA5 /* SceneDelegate.swift */; };
 		8F920B39280857E800C13FA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F920B37280857E800C13FA5 /* Main.storyboard */; };
@@ -119,6 +120,7 @@
 		8F634B59280A4122006071BD /* UITextField+TextPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+TextPublisher.swift"; sourceTree = "<group>"; };
 		8F634B5B280AF2A7006071BD /* Float+ShortValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+ShortValue.swift"; sourceTree = "<group>"; };
 		8F634B5E280AF409006071BD /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		8F634B60280AFFD8006071BD /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		8F920B2E280857E800C13FA5 /* CurrencyExchanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F920B31280857E800C13FA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F920B33280857E800C13FA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			children = (
 				8F920B33280857E800C13FA5 /* SceneDelegate.swift */,
 				8F920B31280857E800C13FA5 /* AppDelegate.swift */,
+				8F634B60280AFFD8006071BD /* DependencyInjector.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				8F634B56280A2071006071BD /* CommissionCalculator.swift in Sources */,
 				8F205D4B2809905A00EF3229 /* UIView+CornerRadius.swift in Sources */,
 				8F634B52280A0D39006071BD /* ExchangeInteractor.swift in Sources */,
+				8F634B61280AFFD8006071BD /* DependencyInjector.swift in Sources */,
 				8F920B32280857E800C13FA5 /* AppDelegate.swift in Sources */,
 				8F634B50280A0AB4006071BD /* ExchangeError.swift in Sources */,
 				8F920BB12808EB9400C13FA5 /* UIViewController+Child.swift in Sources */,
