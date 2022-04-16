@@ -15,7 +15,7 @@ class ExchangeView: UIView, NibLoadable {
 
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: LimitedDecimalTextField!
     @IBOutlet weak var currencySelectionButton: UIButton!
     
     public var currencyType: CurrencyType = .usd
@@ -61,6 +61,7 @@ class ExchangeView: UIView, NibLoadable {
         }
         
         textField.textAlignment = .right
+        textField.keyboardType = .decimalPad
         
         iconImageView.tintColor = .white
         iconImageView.makeItCapsuleOrCircle()
