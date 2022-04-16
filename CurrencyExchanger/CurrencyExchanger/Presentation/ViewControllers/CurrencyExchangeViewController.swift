@@ -62,7 +62,7 @@ class CurrencyExchangeViewController: UIViewController {
         sellExchangeView.textField
             .textPublisher
             .receive(on: DispatchQueue.main)
-            .throttle(for: .milliseconds(300), scheduler: RunLoop.main, latest: true)
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
             .sink { [weak self] text in
                 guard let self = self else { return }
                 self.viewModel?.calculateExchange(amount: text.asDouble,

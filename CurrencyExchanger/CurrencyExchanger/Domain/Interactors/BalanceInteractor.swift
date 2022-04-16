@@ -20,10 +20,6 @@ final class DefaultBalanceInteractor: BalanceInteractor {
     }
     
     func getAccount() -> AccountModel {
-        // FIXME: REMOVE MOCK MODEL
-//        AccountModel(savings: [.init(amount: "1000", currency: .eur),
-//                               .init(amount: "2000", currency: .usd),
-//                               .init(amount: "0", currency: .jpy)])
         localRepository.account
     }
 }

@@ -38,7 +38,6 @@ class MainViewController: UIViewController {
         let viewModel = DefaultCurrencyExchangeViewModel(interactor: interactor)
         viewController.fill(viewModel: viewModel)
         return viewController
-
     }()
     
     // MARK: Life cycle
@@ -54,7 +53,6 @@ class MainViewController: UIViewController {
     // MARK: Methods
     
     private func setupNavigationController() {
-//        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.title = "Currency Converter"
     }
     
