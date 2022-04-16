@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum Constants {
-    static let defaultCommissionFee: Double = 0.0007
-}
-
 // MARK: - CommissionCalculator Implementation
 
 public class CommissionCalculator {
+
+    enum Constants {
+        static let defaultCommissionFee: Double = 0.0007
+    }
 
     // MARK: Properties
 
@@ -31,7 +31,7 @@ public class CommissionCalculator {
     
     // MARK: - Methods
     
-    public func calculateCommissionFee() throws -> Double {
+    public func calculateCommissionFee() -> Double {
         if localRepository.commissionFreeRemainingTimes > 0 {
             localRepository.commissionFreeRemainingTimes -= 1
             return .zero
@@ -42,17 +42,6 @@ public class CommissionCalculator {
         }
         
         let commission = exchange.amount * Constants.defaultCommissionFee
-        let savedAmountOfCurrency = localRepository
-            .account
-            .savings
-            .first(where: { $0.currency == exchange.source })?
-            .amount?
-            .asDouble
-        
-        if savedAmountOfCurrency! - exchange.amount < commission {
-            throw ExchangeError.insufficientFund
-        }
-        
         return commission
     }
 }

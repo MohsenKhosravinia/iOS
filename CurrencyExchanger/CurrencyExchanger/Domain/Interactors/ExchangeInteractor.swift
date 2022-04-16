@@ -101,15 +101,7 @@ final class DefaultExchangeInteractor: ExchangeInteractor {
     private func getCommission(for model: ExchangeModel) throws -> Double {
         let commissionCalculator = CommissionCalculator(localRepository: localRepository,
                                                         exchange: model)
-        
-        var commissionFee: Double = .zero
-        
-        do {
-            commissionFee = try commissionCalculator.calculateCommissionFee()
-        } catch let error {
-            throw error
-        }
-        
+        let commissionFee = commissionCalculator.calculateCommissionFee()
         return commissionFee
     }
 }

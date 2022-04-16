@@ -38,6 +38,7 @@
 		8F634B5C280AF2A7006071BD /* Float+ShortValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B5B280AF2A7006071BD /* Float+ShortValue.swift */; };
 		8F634B5F280AF409006071BD /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B5E280AF409006071BD /* CustomNavigationController.swift */; };
 		8F634B61280AFFD8006071BD /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B60280AFFD8006071BD /* DependencyInjector.swift */; };
+		8F634B63280B02AA006071BD /* CommissionCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B62280B02AA006071BD /* CommissionCalculatorTests.swift */; };
 		8F920B32280857E800C13FA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B31280857E800C13FA5 /* AppDelegate.swift */; };
 		8F920B34280857E800C13FA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B33280857E800C13FA5 /* SceneDelegate.swift */; };
 		8F920B39280857E800C13FA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F920B37280857E800C13FA5 /* Main.storyboard */; };
@@ -45,7 +46,6 @@
 		8F920B3E280857EB00C13FA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F920B3C280857EB00C13FA5 /* LaunchScreen.storyboard */; };
 		8F920B53280857EB00C13FA5 /* CurrencyExchangerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B52280857EB00C13FA5 /* CurrencyExchangerUITests.swift */; };
 		8F920B55280857EB00C13FA5 /* CurrencyExchangerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B54280857EB00C13FA5 /* CurrencyExchangerUITestsLaunchTests.swift */; };
-		8F920B62280859DA00C13FA5 /* ExchangeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B61280859DA00C13FA5 /* ExchangeViewTests.swift */; };
 		8F920B642808BBFD00C13FA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B632808BBFD00C13FA5 /* MainViewController.swift */; };
 		8F920B722808C06100C13FA5 /* DepositModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B712808C06100C13FA5 /* DepositModel.swift */; };
 		8F920B752808C0CF00C13FA5 /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B742808C0CF00C13FA5 /* CurrencyType.swift */; };
@@ -121,6 +121,7 @@
 		8F634B5B280AF2A7006071BD /* Float+ShortValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+ShortValue.swift"; sourceTree = "<group>"; };
 		8F634B5E280AF409006071BD /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		8F634B60280AFFD8006071BD /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		8F634B62280B02AA006071BD /* CommissionCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommissionCalculatorTests.swift; sourceTree = "<group>"; };
 		8F920B2E280857E800C13FA5 /* CurrencyExchanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F920B31280857E800C13FA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F920B33280857E800C13FA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +133,6 @@
 		8F920B4E280857EB00C13FA5 /* CurrencyExchangerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyExchangerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F920B52280857EB00C13FA5 /* CurrencyExchangerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangerUITests.swift; sourceTree = "<group>"; };
 		8F920B54280857EB00C13FA5 /* CurrencyExchangerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8F920B61280859DA00C13FA5 /* ExchangeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewTests.swift; sourceTree = "<group>"; };
 		8F920B632808BBFD00C13FA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8F920B712808C06100C13FA5 /* DepositModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositModel.swift; sourceTree = "<group>"; };
 		8F920B742808C0CF00C13FA5 /* CurrencyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyType.swift; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 		8F920B47280857EB00C13FA5 /* CurrencyExchangerTests */ = {
 			isa = PBXGroup;
 			children = (
-				8F920B61280859DA00C13FA5 /* ExchangeViewTests.swift */,
+				8F634B62280B02AA006071BD /* CommissionCalculatorTests.swift */,
 			);
 			path = CurrencyExchangerTests;
 			sourceTree = "<group>";
@@ -536,6 +536,7 @@
 					};
 					8F920B43280857EB00C13FA5 = {
 						CreatedOnToolsVersion = 13.2;
+						LastSwiftMigration = 1320;
 						TestTargetID = 8F920B2D280857E800C13FA5;
 					};
 					8F920B4D280857EB00C13FA5 = {
@@ -748,7 +749,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F920B62280859DA00C13FA5 /* ExchangeViewTests.swift in Sources */,
+				8F634B63280B02AA006071BD /* CommissionCalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,15 +977,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y57FY52VL4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.khosravinia.CurrencyExchangerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CurrencyExchanger.app/CurrencyExchanger";
@@ -997,11 +1005,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y57FY52VL4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.khosravinia.CurrencyExchangerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
