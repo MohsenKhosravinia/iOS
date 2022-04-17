@@ -18,7 +18,7 @@ class CurrencyExchangeViewController: UIViewController {
     
     // MARK: Properties
     
-    public var exchangePublisher = PassthroughSubject<AccountModel, Never>()
+    public var exchangePublisher = PassthroughSubject<Void, Never>()
     
     private var viewModel: CurrencyExchangeViewModel?
     private var cancellables = Set<AnyCancellable>()
@@ -45,7 +45,7 @@ class CurrencyExchangeViewController: UIViewController {
     }
     
     func setupCallbacks() {
-        sellExchangeView.currencySelectionCallback = { [weak self] currencyType in
+        sellExchangeView.currencySelectionCallback = { [weak self] _ in
             guard let self = self else { return }
             let list = CurrencyType.allCases
             self.presentActionSheet(currencies: list) { currency in
@@ -54,7 +54,7 @@ class CurrencyExchangeViewController: UIViewController {
             }
         }
         
-        receiveExchangeView.currencySelectionCallback = { [weak self] currencyType in
+        receiveExchangeView.currencySelectionCallback = { [weak self] _ in
             guard let self = self else { return }
             let list = CurrencyType.allCases
             self.presentActionSheet(currencies: list) { currency in
@@ -78,7 +78,7 @@ class CurrencyExchangeViewController: UIViewController {
             .sink(receiveValue: { [weak self] transaction in
                 guard let self = self else { return }
                 self.presentAlert(message: transaction.description, title: "Currency converted")
-                self.exchangePublisher.send(transaction.account)
+                self.exchangePublisher.send()
                 self.receiveExchangeView.clear()
                 self.sellExchangeView.clear()
             })

@@ -16,7 +16,7 @@ struct DepositModel: Codable {
 
 extension DepositModel: Equatable {
     
-    static func ==(lhs: DepositModel, rhs: DepositModel) -> Bool {
+    static func == (lhs: DepositModel, rhs: DepositModel) -> Bool {
         lhs.currency == rhs.currency
     }
 }

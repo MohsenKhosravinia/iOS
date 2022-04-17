@@ -17,7 +17,7 @@ struct AccountModel: Codable {
 
 extension AccountModel: Equatable {
     
-    static func ==(lhs: AccountModel, rhs: AccountModel) -> Bool {
+    static func == (lhs: AccountModel, rhs: AccountModel) -> Bool {
         lhs.savings == rhs.savings
     }
 }

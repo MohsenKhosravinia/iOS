@@ -38,12 +38,15 @@ class LimitedDecimalTextField: UITextField {
 
 extension LimitedDecimalTextField: UITextFieldDelegate {
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let oldText = textField.text, let r = Range(range, in: oldText) else {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        guard let oldText = textField.text,
+              let detectedRange = Range(range, in: oldText) else {
             return true
         }
 
-        let newText = oldText.replacingCharacters(in: r, with: string)
+        let newText = oldText.replacingCharacters(in: detectedRange, with: string)
         let isNumeric = newText.isEmpty || (Double(newText) != nil)
         let numberOfDots = newText.components(separatedBy: ".").count - 1
 

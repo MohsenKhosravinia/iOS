@@ -31,29 +31,27 @@ final class CustomNavigationController: UINavigationController {
     private func setupViews() {
         let appearance = UINavigationBarAppearance()
         
-        /// bar background color
+        // bar background color
         appearance.backgroundColor = backgroundColor
         
-        /// title label's attributes
+        // title label's attributes
         appearance.titleTextAttributes = [.font: font, .foregroundColor: titleColor]
         
-        /// divider color
+        // divider color
         appearance.shadowColor = backgroundColor
         
-        /// set appearance
+        // set appearance
         navigationBar.compactAppearance = appearance
         navigationBar.standardAppearance = appearance
         navigationBar.scrollEdgeAppearance = appearance
         
-        /// items colors (bar button items)
+        // items colors (bar button items)
         navigationBar.tintColor = itemColor
         
-        /// remove 'back' text on back button
+        // remove 'back' text on back button
         navigationBar.backItem?.backButtonTitle = ""
         
-        /// make view grows under status bar ???
+        // make view grows under status bar ???
         navigationBar.isTranslucent = true
     }
-
 }
-

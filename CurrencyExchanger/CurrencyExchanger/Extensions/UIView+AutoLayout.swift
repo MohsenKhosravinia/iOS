@@ -34,13 +34,13 @@ extension UIView {
         self.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: padding).isActive = true
         self.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -padding).isActive = true
     }
-
+    
     func fillSuperview(horizontalPadding: CGFloat = 0, verticalPadding: CGFloat = 0) {
         guard let superview = self.superview else {
             print("Error! `superview` was nil – call `addSubview` before calling `bindFrameToSuperviewBounds()`")
             return
         }
-
+        
         self.translatesAutoresizingMaskIntoConstraints = false
         self.topAnchor.constraint(equalTo: superview.topAnchor, constant: verticalPadding).isActive = true
         self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -verticalPadding).isActive = true

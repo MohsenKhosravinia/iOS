@@ -22,7 +22,7 @@ final class NetworkController: NetworkControllerProtocol {
                            headers: Headers) -> AnyPublisher<T, Error> {
         var urlRequest = URLRequest(url: url)
         
-        headers.forEach { (key, value) in
+        headers.forEach { key, value in
             if let value = value as? String {
                 urlRequest.setValue(value, forHTTPHeaderField: key)
             }

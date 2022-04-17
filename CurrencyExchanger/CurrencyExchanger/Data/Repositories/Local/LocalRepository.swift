@@ -21,7 +21,7 @@ struct RealLocalRepository: LocalRepository {
     
     let userDefaults = UserDefaults.standard
     
-    struct StorageKeys {
+    enum StorageKeys {
         static let account = "user.savings"
         static let remainingFreecommissions = "user.remaining.free.commissions"
     }
@@ -63,7 +63,7 @@ extension RealLocalRepository {
         } else {
             let account: AccountModel = .init(savings: [.init(amount: "1000.00", currency: .eur),
                                                         .init(amount: "0.00", currency: .usd),
-                                                        .init(amount: "0.00", currency: .jpy),])
+                                                        .init(amount: "0.00", currency: .jpy)])
             saveAccount(account)
             return account
         }

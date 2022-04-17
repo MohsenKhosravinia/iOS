@@ -16,6 +16,7 @@ struct TransactionModel {
 
 extension TransactionModel: CustomStringConvertible {
     
+    // swiftlint:disable line_length
     var description: String {
         "You have converted \(input.concatenated()) to \(output.concatenated()). Commission fee -\(commission.shortValue) \(input.currency?.rawValue ?? "EUR")"
     }

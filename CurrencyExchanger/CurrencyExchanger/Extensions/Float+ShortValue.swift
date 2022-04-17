@@ -10,6 +10,6 @@ import Foundation
 extension Double {
     
     var shortValue: String {
-        return String(format: "%g", self)
+        String(format: "%g", self)
     }
 }

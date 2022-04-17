@@ -58,7 +58,8 @@ extension MyBalancesViewController: UICollectionViewDataSource {
         viewModel.account.savings.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeue(CurrencyCollectionViewCell.self, indexPath: indexPath)
         cell.fill(deposit: viewModel.account.savings[indexPath.item])
         return cell
@@ -69,7 +70,9 @@ extension MyBalancesViewController: UICollectionViewDataSource {
 
 extension MyBalancesViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let text = viewModel.account.savings[indexPath.item].concatenated()
         let padding: CGFloat = Constants.widthPadding
         let height: CGFloat = Constants.cellHeight
@@ -78,7 +81,9 @@ extension MyBalancesViewController: UICollectionViewDelegate, UICollectionViewDe
         return .init(width: width + padding, height: height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         Constants.minimumInterItemWidth
     }
 }

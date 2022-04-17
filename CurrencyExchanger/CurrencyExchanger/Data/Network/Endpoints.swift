@@ -24,19 +24,19 @@ extension EndPoint {
         var queryParameterItems: [URLQueryItem] = []
         
         queryItems.forEach { (item: (key: AnyHashable, value: Any)) in
-            if item.value is [UInt64] {
-                (item.value as! [UInt64]).forEach({ (int) in
+            if let items = item.value as? [UInt64] {
+                items.forEach({ int in
                     queryParameterItems.append(URLQueryItem(name: "\(item.key)" + "[]", value: "\(int)"))
                 })
             } else {
                 queryParameterItems.append(URLQueryItem(name: "\(item.key)", value: "\(item.value)"))
             }
         }
-        
-        components.queryItems?.forEach({ (item) in
+
+        components.queryItems?.forEach({ item in
             queryParameterItems.append(item)
         })
-        
+
         if queryParameterItems != [] {
             components.queryItems = queryParameterItems
         }

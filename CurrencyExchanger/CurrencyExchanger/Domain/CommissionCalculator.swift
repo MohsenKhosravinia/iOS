@@ -37,9 +37,7 @@ public class CommissionCalculator {
             return .zero
         }
         
-        for rule in customRules {
-            if rule == true { return .zero }
-        }
+        for rule in customRules where rule { return .zero }
         
         let commission = exchange.amount * Constants.defaultCommissionFee
         return commission

@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
         currencyExchangeViewController
             .exchangePublisher
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] accountModel in
+            .sink { [weak self] _ in
                 self?.myBalancesViewController.reload()
             }
             .store(in: &cancellables)
