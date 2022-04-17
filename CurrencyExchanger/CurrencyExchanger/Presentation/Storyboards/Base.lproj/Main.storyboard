@@ -232,6 +232,7 @@
                     <connections>
                         <outlet property="receiveExchangeView" destination="0T2-BB-XXE" id="vZV-EB-B18"/>
                         <outlet property="sellExchangeView" destination="U9Y-w1-20C" id="k3R-4L-jfO"/>
+                        <outlet property="submitButton" destination="fcV-U9-PtU" id="hxW-OB-YV0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcV-HX-OnO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

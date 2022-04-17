@@ -12,6 +12,7 @@ class CurrencyExchangeViewController: UIViewController {
 
     // MARK: IBOutlets
     
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var sellExchangeView: ExchangeView!
     @IBOutlet weak var receiveExchangeView: ExchangeView!
     
@@ -38,7 +39,32 @@ class CurrencyExchangeViewController: UIViewController {
         self.viewModel = viewModel
     }
     
-    func setupBindings() {
+    func setupExchangeViews() {
+        sellExchangeView.setupViews(forType: .sell, currency: .eur)
+        receiveExchangeView.setupViews(forType: .receive, currency: .usd)
+    }
+    
+    func setupCallbacks() {
+        sellExchangeView.currencySelectionCallback = { [weak self] currencyType in
+            guard let self = self else { return }
+            let list = CurrencyType.allCases
+            self.presentActionSheet(currencies: list) { currency in
+                self.sellExchangeView.select(currency: currency)
+                self.calculateExchange()
+            }
+        }
+        
+        receiveExchangeView.currencySelectionCallback = { [weak self] currencyType in
+            guard let self = self else { return }
+            let list = CurrencyType.allCases
+            self.presentActionSheet(currencies: list) { currency in
+                self.receiveExchangeView.select(currency: currency)
+                self.calculateExchange()
+            }
+        }
+    }
+    
+    private func setupBindings() {
         viewModel?.exchangeCalculationPublisher
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] model in
@@ -102,39 +128,6 @@ class CurrencyExchangeViewController: UIViewController {
         present(actionSheetController, animated: true)
     }
     
-    private func setupExchangeViews() {
-        sellExchangeView.setupViews(forType: .sell, currency: .usd)
-        receiveExchangeView.setupViews(forType: .receive, currency: .eur)
-    }
-    
-    private func setupCallbacks() {
-        sellExchangeView.currencySelectionCallback = { [weak self] currencyType in
-            guard let self = self else { return }
-            let list = CurrencyType.allCases
-            self.presentActionSheet(currencies: list) { currency in
-                self.sellExchangeView.select(currency: currency)
-                self.calculateExchange()
-            }
-        }
-        
-        receiveExchangeView.currencySelectionCallback = { [weak self] currencyType in
-            guard let self = self else { return }
-            let list = CurrencyType.allCases
-            self.presentActionSheet(currencies: list) { currency in
-                self.receiveExchangeView.select(currency: currency)
-                self.calculateExchange()
-            }
-        }
-    }
-    
-    private func executeExchange() {
-        guard let sellInputText = sellExchangeView.textField.text else { return }
-        let amount = sellInputText.asDouble
-        let fromType = sellExchangeView.currencyType
-        let toType = receiveExchangeView.currencyType
-        viewModel?.submitExchange(amount: amount, fromType: fromType, toType: toType)
-    }
-    
     private func calculateExchange() {
         guard let sellInputText = sellExchangeView.textField.text else { return }
         let amount = sellInputText.asDouble
@@ -142,7 +135,15 @@ class CurrencyExchangeViewController: UIViewController {
         let toType = receiveExchangeView.currencyType
         viewModel?.calculateExchange(amount: amount, fromType: fromType, toType: toType)
     }
-    
+
+    private func executeExchange() {
+        guard let sellInputText = sellExchangeView.textField.text else { return }
+        let amount = sellInputText.asDouble
+        let fromType = sellExchangeView.currencyType
+        let toType = receiveExchangeView.currencyType
+        viewModel?.submitExchange(amount: amount, fromType: fromType, toType: toType)
+    }
+        
     // MARK: IBActions
     
     @IBAction private func submitButtonTapped(_ sender: UIButton) {
