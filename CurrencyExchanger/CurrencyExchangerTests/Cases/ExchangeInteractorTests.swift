@@ -84,31 +84,32 @@ class ExchangeInteractorTests: XCTestCase {
 
 // MARK: - Mocks
 
-final class MockSuccessExchangeWebRepository: ExchangeWebRepository {
-    var networkController: NetworkControllerProtocol = MockNetworkController()
+private extension ExchangeInteractorTests {
     
-    func exchange(_ model: ExchangeModel) -> AnyPublisher<DepositModel, Error> {
-        let depositModel = DepositModel(amount: "90", currency: .eur)
-        return Just(depositModel)
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
+    final class MockSuccessExchangeWebRepository: ExchangeWebRepository {
+        var networkController: NetworkControllerProtocol = MockNetworkController()
+        func exchange(_ model: ExchangeModel) -> AnyPublisher<DepositModel, Error> {
+            let depositModel = DepositModel(amount: "90", currency: .eur)
+            return Just(depositModel)
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
+        }
+    }
+    
+    final class MockFailureExchangeWebRepository: ExchangeWebRepository {
+        var networkController: NetworkControllerProtocol = MockNetworkController()
+        func exchange(_ model: ExchangeModel) -> AnyPublisher<DepositModel, Error> {
+            return Fail(error: ExchangeError.failedExchange)
+                .eraseToAnyPublisher()
+        }
+    }
+    
+    final class MockNetworkController: NetworkControllerProtocol {
+        func get<T>(type: T.Type, url: URL, headers: Headers) -> AnyPublisher<T, Error> where T : Decodable {
+            return Just(T.self as! T)
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
+        }
     }
 }
 
-final class MockFailureExchangeWebRepository: ExchangeWebRepository {
-    var networkController: NetworkControllerProtocol = MockNetworkController()
-    
-    func exchange(_ model: ExchangeModel) -> AnyPublisher<DepositModel, Error> {
-        return Fail(error: ExchangeError.failedExchange)
-            .eraseToAnyPublisher()
-    }
-}
-
-final class MockNetworkController: NetworkControllerProtocol {
-    
-    func get<T>(type: T.Type, url: URL, headers: Headers) -> AnyPublisher<T, Error> where T : Decodable {
-        return Just(T.self as! T)
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
-    }
-}

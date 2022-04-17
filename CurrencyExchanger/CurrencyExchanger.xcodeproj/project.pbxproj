@@ -17,6 +17,11 @@
 		8F2C9A14280B3C66002F4C16 /* ExchangeWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A13280B3C66002F4C16 /* ExchangeWebRepository.swift */; };
 		8F2C9A16280B5849002F4C16 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A15280B5849002F4C16 /* TransactionModel.swift */; };
 		8F2C9A18280B627B002F4C16 /* LimitedDecimalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A17280B627B002F4C16 /* LimitedDecimalTextField.swift */; };
+		8F2C9A1A280B6988002F4C16 /* ExchangeWebRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A19280B6988002F4C16 /* ExchangeWebRepositoryTests.swift */; };
+		8F2C9A1F280B74EE002F4C16 /* ExchangeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A1E280B74EE002F4C16 /* ExchangeError.swift */; };
+		8F2C9A22280B8576002F4C16 /* Data+FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A21280B8576002F4C16 /* Data+FromJSON.swift */; };
+		8F2C9A26280B86DE002F4C16 /* Exchange_Failure_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F2C9A25280B86DE002F4C16 /* Exchange_Failure_Response.json */; };
+		8F2C9A29280B93BF002F4C16 /* Exchange_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F2C9A27280B871C002F4C16 /* Exchange_Success_Response.json */; };
 		8F634B322809A0BF006071BD /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B782808C29D00C13FA5 /* ServiceProtocol.swift */; };
 		8F634B332809A0C7006071BD /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B762808C29000C13FA5 /* NetworkController.swift */; };
 		8F634B342809A0D0006071BD /* NetworkControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B772808C29600C13FA5 /* NetworkControllerProtocol.swift */; };
@@ -34,7 +39,7 @@
 		8F634B4A280A0201006071BD /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F920B7C2808C2D400C13FA5 /* Configuration.plist */; };
 		8F634B4C280A0266006071BD /* URLConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B4B280A0266006071BD /* URLConfiguration.swift */; };
 		8F634B4E280A0309006071BD /* ExchangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B4D280A0309006071BD /* ExchangeModel.swift */; };
-		8F634B50280A0AB4006071BD /* ExchangeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B4F280A0AB4006071BD /* ExchangeError.swift */; };
+		8F634B50280A0AB4006071BD /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B4F280A0AB4006071BD /* APIError.swift */; };
 		8F634B52280A0D39006071BD /* ExchangeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B51280A0D39006071BD /* ExchangeInteractor.swift */; };
 		8F634B54280A113C006071BD /* CurrencyExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B53280A113C006071BD /* CurrencyExchangeViewModel.swift */; };
 		8F634B56280A2071006071BD /* CommissionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F634B55280A2071006071BD /* CommissionCalculator.swift */; };
@@ -113,6 +118,11 @@
 		8F2C9A13280B3C66002F4C16 /* ExchangeWebRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeWebRepository.swift; sourceTree = "<group>"; };
 		8F2C9A15280B5849002F4C16 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		8F2C9A17280B627B002F4C16 /* LimitedDecimalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedDecimalTextField.swift; sourceTree = "<group>"; };
+		8F2C9A19280B6988002F4C16 /* ExchangeWebRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeWebRepositoryTests.swift; sourceTree = "<group>"; };
+		8F2C9A1E280B74EE002F4C16 /* ExchangeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeError.swift; sourceTree = "<group>"; };
+		8F2C9A21280B8576002F4C16 /* Data+FromJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+FromJSON.swift"; sourceTree = "<group>"; };
+		8F2C9A25280B86DE002F4C16 /* Exchange_Failure_Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Exchange_Failure_Response.json; sourceTree = "<group>"; };
+		8F2C9A27280B871C002F4C16 /* Exchange_Success_Response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Exchange_Success_Response.json; sourceTree = "<group>"; };
 		8F634B362809A216006071BD /* Data+PrettyPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+PrettyPrint.swift"; sourceTree = "<group>"; };
 		8F634B382809A458006071BD /* UICollectionView+RegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+RegisterCell.swift"; sourceTree = "<group>"; };
 		8F634B3A2809A48C006071BD /* UICollectionView+DequeueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+DequeueCell.swift"; sourceTree = "<group>"; };
@@ -123,7 +133,7 @@
 		8F634B462809FDDF006071BD /* MyBalancesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBalancesViewModel.swift; sourceTree = "<group>"; };
 		8F634B4B280A0266006071BD /* URLConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfiguration.swift; sourceTree = "<group>"; };
 		8F634B4D280A0309006071BD /* ExchangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeModel.swift; sourceTree = "<group>"; };
-		8F634B4F280A0AB4006071BD /* ExchangeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeError.swift; sourceTree = "<group>"; };
+		8F634B4F280A0AB4006071BD /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		8F634B51280A0D39006071BD /* ExchangeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeInteractor.swift; sourceTree = "<group>"; };
 		8F634B53280A113C006071BD /* CurrencyExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeViewModel.swift; sourceTree = "<group>"; };
 		8F634B55280A2071006071BD /* CommissionCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommissionCalculator.swift; sourceTree = "<group>"; };
@@ -209,6 +219,7 @@
 				8F634B62280B02AA006071BD /* CommissionCalculatorTests.swift */,
 				8F2C9A0A280B3085002F4C16 /* BalanceInteractorTests.swift */,
 				8F2C9A11280B3395002F4C16 /* ExchangeInteractorTests.swift */,
+				8F2C9A19280B6988002F4C16 /* ExchangeWebRepositoryTests.swift */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -216,9 +227,27 @@
 		8F2C9A0E280B3333002F4C16 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				8F2C9A28280B87D9002F4C16 /* JSONs */,
 				8F2C9A0F280B3355002F4C16 /* MockLocalRepository.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8F2C9A20280B8564002F4C16 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8F2C9A21280B8576002F4C16 /* Data+FromJSON.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8F2C9A28280B87D9002F4C16 /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				8F2C9A25280B86DE002F4C16 /* Exchange_Failure_Response.json */,
+				8F2C9A27280B871C002F4C16 /* Exchange_Success_Response.json */,
+			);
+			path = JSONs;
 			sourceTree = "<group>";
 		};
 		8F634B3C2809A4F6006071BD /* CurrencyCell */ = {
@@ -285,6 +314,7 @@
 		8F920B47280857EB00C13FA5 /* CurrencyExchangerTests */ = {
 			isa = PBXGroup;
 			children = (
+				8F2C9A20280B8564002F4C16 /* Extensions */,
 				8F2C9A0E280B3333002F4C16 /* Mocks */,
 				8F2C9A0D280B332E002F4C16 /* Cases */,
 			);
@@ -378,7 +408,7 @@
 				8F920B7C2808C2D400C13FA5 /* Configuration.plist */,
 				8F920B7B2808C2B700C13FA5 /* API.swift */,
 				8F920B7A2808C2B100C13FA5 /* Endpoints.swift */,
-				8F634B4F280A0AB4006071BD /* ExchangeError.swift */,
+				8F634B4F280A0AB4006071BD /* APIError.swift */,
 				8F920B792808C2A800C13FA5 /* HTTPMethod.swift */,
 				8F920B762808C29000C13FA5 /* NetworkController.swift */,
 				8F920B772808C29600C13FA5 /* NetworkControllerProtocol.swift */,
@@ -436,8 +466,9 @@
 			isa = PBXGroup;
 			children = (
 				8F634B55280A2071006071BD /* CommissionCalculator.swift */,
-				8F920B832808C63300C13FA5 /* Interactors */,
+				8F2C9A1E280B74EE002F4C16 /* ExchangeError.swift */,
 				8F920B702808C04000C13FA5 /* Entities */,
+				8F920B832808C63300C13FA5 /* Interactors */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -614,6 +645,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F2C9A26280B86DE002F4C16 /* Exchange_Failure_Response.json in Resources */,
+				8F2C9A29280B93BF002F4C16 /* Exchange_Success_Response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,6 +784,7 @@
 				8F2C9A18280B627B002F4C16 /* LimitedDecimalTextField.swift in Sources */,
 				8F634B58280A36ED006071BD /* String+ToDouble.swift in Sources */,
 				8F634B49280A01E9006071BD /* Endpoints.swift in Sources */,
+				8F2C9A1F280B74EE002F4C16 /* ExchangeError.swift in Sources */,
 				8F634B4C280A0266006071BD /* URLConfiguration.swift in Sources */,
 				8F920B752808C0CF00C13FA5 /* CurrencyType.swift in Sources */,
 				8F634B3F2809A517006071BD /* CurrencyCollectionViewCell.swift in Sources */,
@@ -760,7 +794,7 @@
 				8F634B52280A0D39006071BD /* ExchangeInteractor.swift in Sources */,
 				8F634B61280AFFD8006071BD /* DependencyInjector.swift in Sources */,
 				8F920B32280857E800C13FA5 /* AppDelegate.swift in Sources */,
-				8F634B50280A0AB4006071BD /* ExchangeError.swift in Sources */,
+				8F634B50280A0AB4006071BD /* APIError.swift in Sources */,
 				8F920BB12808EB9400C13FA5 /* UIViewController+Child.swift in Sources */,
 				8F634B472809FDDF006071BD /* MyBalancesViewModel.swift in Sources */,
 				8F634B3B2809A48C006071BD /* UICollectionView+DequeueCell.swift in Sources */,
@@ -783,9 +817,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F634B63280B02AA006071BD /* CommissionCalculatorTests.swift in Sources */,
+				8F2C9A1A280B6988002F4C16 /* ExchangeWebRepositoryTests.swift in Sources */,
 				8F2C9A12280B3395002F4C16 /* ExchangeInteractorTests.swift in Sources */,
 				8F2C9A10280B3355002F4C16 /* MockLocalRepository.swift in Sources */,
 				8F2C9A0B280B3085002F4C16 /* BalanceInteractorTests.swift in Sources */,
+				8F2C9A22280B8576002F4C16 /* Data+FromJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
