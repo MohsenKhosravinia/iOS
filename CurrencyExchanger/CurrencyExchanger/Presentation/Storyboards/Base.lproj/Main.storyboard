@@ -79,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="971.01449275362324" y="95.758928571428569"/>
+            <point key="canvasLocation" x="841" y="95"/>
         </scene>
         <!--My Balances View Controller-->
         <scene sceneID="q1Z-Da-hfz">
@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YC7-GR-m4X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="-155"/>
+            <point key="canvasLocation" x="1614" y="-156"/>
         </scene>
         <!--Currency Exchange View Controller-->
         <scene sceneID="mgS-Pr-NXt">
@@ -236,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcV-HX-OnO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="75"/>
+            <point key="canvasLocation" x="1614" y="74"/>
         </scene>
         <!--Custom Navigation Controller-->
         <scene sceneID="JLH-7S-RmH">
