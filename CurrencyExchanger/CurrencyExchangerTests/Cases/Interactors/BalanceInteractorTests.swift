@@ -9,9 +9,24 @@
 import XCTest
 
 class BalanceInteractorTests: XCTestCase {
+    
+    var userDefaults: UserDefaults!
+    
+    override func setUp() {
+        super.setUp()
+        
+        userDefaults = UserDefaults(suiteName: #file)
+        userDefaults.removePersistentDomain(forName: #file)
+    }
+    
+    override func tearDown() {
+        userDefaults = nil
+        
+        super.tearDown()
+    }
 
     func test_balanceInteractorGetsAccount_receivesCorrectAccount() {
-        let localRepository = MockLocalRepository()
+        let localRepository = MockLocalRepository(userDefaults: userDefaults)
         let sut = DefaultBalanceInteractor(localRepository: localRepository)
         
         let account = sut.getAccount()
@@ -20,11 +35,12 @@ class BalanceInteractorTests: XCTestCase {
     }
     
     func test_balanceInteractorGetAccount_savingsArrayIsNotEmpty() {
-        let localRepository = MockLocalRepository()
+        let localRepository = MockLocalRepository(userDefaults: userDefaults)
         let sut = DefaultBalanceInteractor(localRepository: localRepository)
         
         let account = sut.getAccount()
         
         XCTAssertFalse(account.savings.isEmpty)
     }
+    
 }

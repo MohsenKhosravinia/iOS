@@ -11,6 +11,7 @@ import Combine
 
 class ExchangeInteractorTests: XCTestCase {
     
+    var userDefaults: UserDefaults!
     var exchangeInteractor: ExchangeInteractor!
     var mockLocalRepository: LocalRepository!
     var mockDepositModel: DepositModel!
@@ -18,11 +19,15 @@ class ExchangeInteractorTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        mockLocalRepository = MockLocalRepository()
+        userDefaults = UserDefaults(suiteName: #file)
+        userDefaults.removePersistentDomain(forName: #file)
+        mockLocalRepository = MockLocalRepository(userDefaults: userDefaults)
+        
         mockDepositModel = DepositModel()
     }
     
     override func tearDown() {
+        userDefaults = nil
         mockLocalRepository = nil
         mockDepositModel = nil
         

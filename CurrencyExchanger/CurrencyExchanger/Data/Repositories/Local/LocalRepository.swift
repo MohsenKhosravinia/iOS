@@ -8,18 +8,21 @@
 import Foundation
 
 protocol LocalRepository {
-    var userDefaults: UserDefaults { get }
     var account: AccountModel { get set }
     var commissionFreeRemainingTimes: Int { get set }
+    
+    init(userDefaults: UserDefaults)
 }
 
 // MARK: - LocalRepository Declaration
 
 struct RealLocalRepository: LocalRepository {
     
-    static let shared = RealLocalRepository()
+    let userDefaults: UserDefaults!
     
-    let userDefaults = UserDefaults.standard
+    init(userDefaults: UserDefaults) {
+        self.userDefaults = userDefaults
+    }
     
     enum StorageKeys {
         static let account = "user.savings"

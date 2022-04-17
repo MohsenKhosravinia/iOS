@@ -12,16 +12,21 @@ class CommissionCalculatorTests: XCTestCase {
 
     var exchangeModel: ExchangeModel!
     var localRepository: LocalRepository!
+    var userDefaults: UserDefaults!
     
     override func setUp() {
         super.setUp()
             
         exchangeModel = ExchangeModel(amount: 100, source: .eur, destination: .usd)
-        localRepository = MockLocalRepository()
+        
+        userDefaults = UserDefaults(suiteName: #file)
+        userDefaults.removePersistentDomain(forName: #file)
+        localRepository = MockLocalRepository(userDefaults: userDefaults)
     }
     
     override func tearDown() {
         exchangeModel = nil
+        userDefaults = nil
         localRepository = nil
         
         super.tearDown()

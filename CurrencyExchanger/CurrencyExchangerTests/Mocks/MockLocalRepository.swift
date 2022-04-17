@@ -9,8 +9,13 @@
 import Foundation
 
 class MockLocalRepository: LocalRepository {
+
+    var userDefaults: UserDefaults!
     
-    var userDefaults: UserDefaults { UserDefaults.standard }
+    required init(userDefaults: UserDefaults) {
+        self.userDefaults = userDefaults
+    }
+    
     var commissionFreeRemainingTimes: Int = 0
     
     var account: AccountModel {

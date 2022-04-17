@@ -71,6 +71,7 @@
 		8F920BB62808EEF800C13FA5 /* ExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920BB42808EEF800C13FA5 /* ExchangeView.swift */; };
 		8F920BB72808EEF800C13FA5 /* ExchangeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F920BB52808EEF800C13FA5 /* ExchangeView.xib */; };
 		8F920BBA2808EF5B00C13FA5 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920BB92808EF5B00C13FA5 /* NibLoadable.swift */; };
+		8FF4C7D2280CAB36001D3C9D /* LocalRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF4C7D1280CAB36001D3C9D /* LocalRepositoryTests.swift */; };
 		ABE73EBD3D9B85C290938B16 /* Pods_CurrencyExchanger_CurrencyExchangerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FAA4252AD98A5F4DD1A7DE /* Pods_CurrencyExchanger_CurrencyExchangerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +182,7 @@
 		8F920BB42808EEF800C13FA5 /* ExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeView.swift; sourceTree = "<group>"; };
 		8F920BB52808EEF800C13FA5 /* ExchangeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExchangeView.xib; sourceTree = "<group>"; };
 		8F920BB92808EF5B00C13FA5 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		8FF4C7D1280CAB36001D3C9D /* LocalRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepositoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				8F2C9A19280B6988002F4C16 /* ExchangeWebRepositoryTests.swift */,
+				8FF4C7D1280CAB36001D3C9D /* LocalRepositoryTests.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -885,6 +888,7 @@
 				8F2C9A2F280C1D1B002F4C16 /* CurrencyExchangeViewControllerTests.swift in Sources */,
 				8F2C9A35280C2744002F4C16 /* MyBalancesViewModelTests.swift in Sources */,
 				8F2C9A2D280C17B8002F4C16 /* MyBalancesViewControllerTests.swift in Sources */,
+				8FF4C7D2280CAB36001D3C9D /* LocalRepositoryTests.swift in Sources */,
 				8F2C9A0B280B3085002F4C16 /* BalanceInteractorTests.swift in Sources */,
 				8F2C9A22280B8576002F4C16 /* Data+FromJSON.swift in Sources */,
 				8F2C9A37280C2865002F4C16 /* CurrencyExchangeViewModelTests.swift in Sources */,
