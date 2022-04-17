@@ -16,6 +16,8 @@ final class CustomNavigationController: UINavigationController {
     private let itemColor: UIColor = .black
     private let font: UIFont = .systemFont(ofSize: 16)
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    
     // MARK: Life cycle
     
     override func viewDidLayoutSubviews() {

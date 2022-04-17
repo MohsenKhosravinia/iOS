@@ -17,8 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         #if EMPLOYEE
         let client = Client(factoryType: EmployeeViewFactory.self)
-        #else
+        #elseif ADMIN
         let client = Client(factoryType: AdminViewFactory.self)
+        #else
+        let client = Client(factoryType: GuestViewFactory.self)
         #endif
         
         window?.rootViewController = client.signUpViewController()

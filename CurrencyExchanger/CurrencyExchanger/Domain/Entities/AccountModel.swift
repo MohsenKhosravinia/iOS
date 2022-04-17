@@ -14,3 +14,10 @@ struct AccountModel: Codable {
         savings.first(where: { $0.currency == element })
     }
 }
+
+extension AccountModel: Equatable {
+    
+    static func ==(lhs: AccountModel, rhs: AccountModel) -> Bool {
+        lhs.savings == rhs.savings
+    }
+}

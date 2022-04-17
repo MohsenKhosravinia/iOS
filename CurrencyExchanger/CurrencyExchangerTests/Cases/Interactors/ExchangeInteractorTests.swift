@@ -12,26 +12,30 @@ import Combine
 class ExchangeInteractorTests: XCTestCase {
     
     var exchangeInteractor: ExchangeInteractor!
-    
     var mockLocalRepository: LocalRepository!
+    var mockDepositModel: DepositModel!
 
     override func setUp() {
         super.setUp()
         
         mockLocalRepository = MockLocalRepository()
+        mockDepositModel = DepositModel()
     }
     
     override func tearDown() {
         mockLocalRepository = nil
+        mockDepositModel = nil
         
         super.tearDown()
     }
     
-    func test_exchangeInteractorCalculateExchange_calculatesCorrectly() {
+    func test_calculateExchange_calculatesCorrectly() {
         let exchangeModel = ExchangeModel(amount: 100,
                                           source: .usd,
                                           destination: .eur)
-        let sut = makeExchangeInteractor(with: MockSuccessExchangeWebRepository())
+        let mockDeposit = DepositModel(amount: "90", currency: .usd)
+        let mockWebRepository = MockSuccessExchangeWebRepository(deposit: mockDeposit)
+        let sut = makeExchangeInteractor(with: mockWebRepository)
         
         let expectation = expectation(description: "")
         var depositModel: DepositModel!
@@ -51,7 +55,7 @@ class ExchangeInteractorTests: XCTestCase {
     }
 
     
-    func test_exchangeInteractorCalculateExchange_failsProperly() {
+    func test_calculateExchange_fails() {
         let exchangeModel = ExchangeModel(amount: 100,
                                           source: .usd,
                                           destination: .eur)
@@ -73,6 +77,40 @@ class ExchangeInteractorTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
         XCTAssertEqual(desiredError, ExchangeError.failedExchange)
     }
+    
+    func test_executeExchange_changesOnBalance() {
+        let exchangeModel = ExchangeModel(amount: 100,
+                                          source: .eur,
+                                          destination: .usd)
+        let depositAccount = DepositModel(amount: "100", currency: .usd)
+        let sut = makeExchangeInteractor(with: MockSuccessExchangeWebRepository(deposit: depositAccount))
+        
+        let calculator = CommissionCalculator(localRepository: mockLocalRepository, exchange: exchangeModel)
+        let commissionFee = calculator.calculateCommissionFee()
+        let desiredEuroAmount = String(Double(900) - commissionFee)
+        let input = DepositModel(amount: desiredEuroAmount, currency: .eur)
+        var depositAfterDeduction: DepositModel?
+        let output = DepositModel(amount: "100", currency: .usd)
+        var desiredOutput: DepositModel?
+        
+        let expectation = expectation(description: "")
+        var occuredError: ExchangeError?
+        sut.executeExchange(exchangeModel) { result in
+            switch result {
+            case .success(let transaction):
+                depositAfterDeduction = transaction.account[.eur]
+                desiredOutput = transaction.output
+            case .failure(let error):
+                occuredError = error
+            }
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertNil(occuredError)
+        XCTAssertEqual(depositAfterDeduction?.amount?.asDouble.shortValue, input.amount?.asDouble.shortValue)
+        XCTAssertEqual(desiredOutput?.amount?.asDouble.shortValue, output.amount?.asDouble.shortValue)
+    }
 
     // MARK: Factory
     
@@ -88,9 +126,15 @@ private extension ExchangeInteractorTests {
     
     final class MockSuccessExchangeWebRepository: ExchangeWebRepository {
         var networkController: NetworkControllerProtocol = MockNetworkController()
+        var mockDeposit = DepositModel()
+        
+        convenience init(deposit: DepositModel) {
+            self.init()
+            self.mockDeposit = deposit
+        }
+        
         func exchange(_ model: ExchangeModel) -> AnyPublisher<DepositModel, Error> {
-            let depositModel = DepositModel(amount: "90", currency: .eur)
-            return Just(depositModel)
+            return Just(mockDeposit)
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
         }

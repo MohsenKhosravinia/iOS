@@ -7,6 +7,12 @@
 
 import UIKit
 
+// Factory method: create objects of same family (hide concrete class initialization)
+// Abstract Factory: create matrix products
+
+// [admin   signup  login]
+// [employy signup  login]
+
 protocol AuthViewFactory {
     static func createAuthView(for type: AuthType) -> AuthView
     static func createAuthViewController(for type: AuthType) -> AuthViewController
@@ -39,5 +45,20 @@ class EmployeeViewFactory: AuthViewFactory {
     
     static func createAuthViewController(for type: AuthType) -> AuthViewController {
         EmployeeAuthViewController(authView: createAuthView(for: type))
+    }
+}
+
+class GuestViewFactory: AuthViewFactory {
+    static func createAuthView(for type: AuthType) -> AuthView {
+        switch type {
+        case .signup:
+            return EmployeeLoginView() // GuestSignupView()
+        case .login:
+            return EmployeeLoginView() // GuestLoginView()
+        }
+    }
+    
+    static func createAuthViewController(for type: AuthType) -> AuthViewController {
+        GuestAuthViewController(authView: createAuthView(for: type))
     }
 }
