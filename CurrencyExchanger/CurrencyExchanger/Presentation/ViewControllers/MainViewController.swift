@@ -14,7 +14,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var myBalancesContainerView: UIView!
     @IBOutlet weak var currencyExchangeContainerView: UIView!
-    @IBOutlet weak var submitButton: UIButton!
     
     // MARK: Properties
     
@@ -40,7 +39,7 @@ class MainViewController: UIViewController {
     
     // MARK: Methods
     
-    private func setupNavigationController() {
+    func setupNavigationController() {
         navigationItem.title = "Currency Converter"
     }
     

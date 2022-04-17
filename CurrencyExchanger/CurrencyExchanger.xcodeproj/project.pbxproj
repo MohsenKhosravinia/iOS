@@ -23,6 +23,7 @@
 		8F2C9A29280B93BF002F4C16 /* Exchange_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F2C9A27280B871C002F4C16 /* Exchange_Success_Response.json */; };
 		8F2C9A2D280C17B8002F4C16 /* MyBalancesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A2C280C17B8002F4C16 /* MyBalancesViewControllerTests.swift */; };
 		8F2C9A2F280C1D1B002F4C16 /* CurrencyExchangeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A2E280C1D1B002F4C16 /* CurrencyExchangeViewControllerTests.swift */; };
+		8F2C9A31280C24F2002F4C16 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2C9A30280C24F2002F4C16 /* MainViewControllerTests.swift */; };
 		8F634B322809A0BF006071BD /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B782808C29D00C13FA5 /* ServiceProtocol.swift */; };
 		8F634B332809A0C7006071BD /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B762808C29000C13FA5 /* NetworkController.swift */; };
 		8F634B342809A0D0006071BD /* NetworkControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F920B772808C29600C13FA5 /* NetworkControllerProtocol.swift */; };
@@ -125,6 +126,7 @@
 		8F2C9A27280B871C002F4C16 /* Exchange_Success_Response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Exchange_Success_Response.json; sourceTree = "<group>"; };
 		8F2C9A2C280C17B8002F4C16 /* MyBalancesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBalancesViewControllerTests.swift; sourceTree = "<group>"; };
 		8F2C9A2E280C1D1B002F4C16 /* CurrencyExchangeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeViewControllerTests.swift; sourceTree = "<group>"; };
+		8F2C9A30280C24F2002F4C16 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
 		8F634B362809A216006071BD /* Data+PrettyPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+PrettyPrint.swift"; sourceTree = "<group>"; };
 		8F634B382809A458006071BD /* UICollectionView+RegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+RegisterCell.swift"; sourceTree = "<group>"; };
 		8F634B3A2809A48C006071BD /* UICollectionView+DequeueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+DequeueCell.swift"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			children = (
 				8F2C9A2C280C17B8002F4C16 /* MyBalancesViewControllerTests.swift */,
 				8F2C9A2E280C1D1B002F4C16 /* CurrencyExchangeViewControllerTests.swift */,
+				8F2C9A30280C24F2002F4C16 /* MainViewControllerTests.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				8F2C9A2D280C17B8002F4C16 /* MyBalancesViewControllerTests.swift in Sources */,
 				8F2C9A0B280B3085002F4C16 /* BalanceInteractorTests.swift in Sources */,
 				8F2C9A22280B8576002F4C16 /* Data+FromJSON.swift in Sources */,
+				8F2C9A31280C24F2002F4C16 /* MainViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

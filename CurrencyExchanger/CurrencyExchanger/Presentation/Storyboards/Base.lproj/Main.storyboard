@@ -75,7 +75,6 @@
                     <connections>
                         <outlet property="currencyExchangeContainerView" destination="Xep-8x-tOH" id="noN-qV-g83"/>
                         <outlet property="myBalancesContainerView" destination="ea5-g1-41O" id="Vz5-sb-KnE"/>
-                        <outlet property="submitButton" destination="fcV-U9-PtU" id="eoz-xz-n6I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
