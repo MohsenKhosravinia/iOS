@@ -74,7 +74,7 @@ extension RealLocalRepository {
 
 extension RealLocalRepository {
     
-    private var defaltFreeCommissionExchangeTimes: Int { 5 }
+    private var defaultFreeCommissionExchangeTimes: Int { 5 }
     
     var commissionFreeRemainingTimes: Int {
         get { loadRemainingFreeCommissionTimes() }
@@ -82,10 +82,14 @@ extension RealLocalRepository {
     }
     
     func saveRemainingFreeCommission(times: Int) {
-        userDefaults.set(times, forKey: StorageKeys.remainingFreecommissions)
+        userDefaults.set(String(times), forKey: StorageKeys.remainingFreecommissions)
     }
     
     private func loadRemainingFreeCommissionTimes() -> Int {
-        userDefaults.integer(forKey: StorageKeys.remainingFreecommissions)
+        guard let remainingTimes = userDefaults
+                .string(forKey: StorageKeys.remainingFreecommissions) else {
+            return defaultFreeCommissionExchangeTimes
+        }
+        return Int(remainingTimes) ?? defaultFreeCommissionExchangeTimes
     }
 }

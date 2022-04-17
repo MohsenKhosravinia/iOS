@@ -18,6 +18,10 @@ extension TransactionModel: CustomStringConvertible {
     
     // swiftlint:disable line_length
     var description: String {
-        "You have converted \(input.concatenated()) to \(output.concatenated()). Commission fee -\(commission.shortValue) \(input.currency?.rawValue ?? "EUR")"
+        let currencyType = input.currency?.rawValue ?? "EUR"
+        let commissionString = commission.shortValue == "0"
+        ? "is free"
+        : ("-\(commission.shortValue) \(currencyType)")
+        return "You have converted \(input.concatenated()) to \(output.concatenated()). Commission fee \(commissionString))"
     }
 }
