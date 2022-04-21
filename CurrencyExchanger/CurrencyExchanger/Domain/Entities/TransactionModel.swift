@@ -22,6 +22,6 @@ extension TransactionModel: CustomStringConvertible {
         let commissionString = commission.shortValue == "0"
         ? "is free"
         : ("-\(commission.shortValue) \(currencyType)")
-        return "You have converted \(input.concatenated()) to \(output.concatenated()). Commission fee \(commissionString))"
+        return "You have converted \(input.concatenated()) to \(output.concatenated()). Commission fee \(commissionString)"
     }
 }
