@@ -13,25 +13,35 @@ public class BurgerBuilder {
     public private(set) var toppings: Toppings = []
     private var soldOutMeats: [Meat] = []
     
-    public func addSauces(_ sauce: Sauces) {
+    @discardableResult
+    public func addSauces(_ sauce: Sauces) -> BurgerBuilder {
         sauces.insert(sauce)
+        return self
     }
     
-    public func removeSauces(_ sauce: Sauces) {
+    @discardableResult
+    public func removeSauces(_ sauce: Sauces) -> BurgerBuilder {
         sauces.remove(sauce)
+        return self
     }
-    
-    public func addToppings(_ topping: Toppings) {
+
+    @discardableResult
+    public func addToppings(_ topping: Toppings) -> BurgerBuilder {
         toppings.insert(topping)
+        return self
     }
     
-    public func removeToppings(_ topping: Toppings) {
+    @discardableResult
+    public func removeToppings(_ topping: Toppings) -> BurgerBuilder {
         toppings.remove(topping)
+        return self
     }
     
-    public func setMeat(_ meat: Meat) throws {
+    @discardableResult
+    public func setMeat(_ meat: Meat) throws -> BurgerBuilder {
         guard isAvailable(meat) else { throw Error.soldOut }
         self.meat = meat
+        return self
     }
     
     public func isAvailable(_ meat: Meat) -> Bool {
@@ -39,8 +49,8 @@ public class BurgerBuilder {
     }
     
     public func build() -> Burger {
-        return Burger(meat: meat,
-                      sauce: sauces,
-                      toppings: toppings)
+        Burger(meat: meat,
+               sauce: sauces,
+               toppings: toppings)
     }
 }
