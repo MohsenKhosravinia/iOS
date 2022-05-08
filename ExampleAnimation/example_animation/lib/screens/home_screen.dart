@@ -1,6 +1,8 @@
-import 'package:example_animation/screens/list_animation_screen.dart';
-import 'package:example_animation/screens/pulse_animation_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'animated_container_screen.dart';
+import 'list_animation_screen.dart';
+import 'pulse_animation_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,7 +14,7 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Animations'),
       ),
       body: ListView.builder(
-        itemCount: 2,
+        itemCount: 3,
         itemBuilder: (BuildContext context, int index) {
           switch (index) {
             case 0:
@@ -34,6 +36,17 @@ class HomeScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => const ListAnimationScreen()),
+                  );
+                },
+              );
+            case 2:
+              return ListTile(
+                title: const Text('Animated container'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AnimatedContainerScreen()),
                   );
                 },
               );
