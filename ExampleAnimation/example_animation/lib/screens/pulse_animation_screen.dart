@@ -1,14 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class PulseAnimationScreen extends StatefulWidget {
+  const PulseAnimationScreen({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<PulseAnimationScreen> createState() => _PulseAnimationScreenState();
 }
 
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+class _PulseAnimationScreenState extends State<PulseAnimationScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<Color?> _colorAnimation;
   late Animation<double> _sizeAnimation;
@@ -32,6 +33,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
         child: AnimatedBuilder(
           animation: _animationController,
