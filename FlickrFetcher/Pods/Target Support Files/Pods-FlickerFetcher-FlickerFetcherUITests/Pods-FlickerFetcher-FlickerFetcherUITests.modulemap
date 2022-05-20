@@ -1,6 +1,0 @@
-framework module Pods_FlickerFetcher_FlickerFetcherUITests {
-  umbrella header "Pods-FlickerFetcher-FlickerFetcherUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
