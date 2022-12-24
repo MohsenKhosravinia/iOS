@@ -1,6 +1,6 @@
 //
-//  SimpleWidget.swift
-//  SimpleWidget
+//  HelloWidget.swift
+//  HelloWidget
 //
 //  Created by Mohsen Khosravinia on 12/12/22.
 //
@@ -9,15 +9,15 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct SimpleWidget: Widget {
+struct HelloWidget: Widget {
     let kind = "com.khosravinia.mohsen.simple.widget"
     
     var body: some WidgetConfiguration {
         StaticConfiguration(
             kind: kind,
-            provider: SimpleWidgetTimelineProvider()
+            provider: HelloWidgetTimelineProvider()
         ) { _ in
-            SimpleWidgetEntryView()
+            HelloWidgetEntryView()
         }
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
         .configurationDisplayName("Simple Widget")

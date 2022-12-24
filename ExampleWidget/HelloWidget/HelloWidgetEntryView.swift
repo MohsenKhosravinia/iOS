@@ -8,7 +8,7 @@
 import SwiftUI
 import WidgetKit
 
-struct SimpleWidgetEntryView: View {
+struct HelloWidgetEntryView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Hello")
@@ -25,7 +25,7 @@ struct SimpleWidgetEntryView: View {
 
 struct SimpleWidget_Previews: PreviewProvider {
     static var previews: some View {
-        SimpleWidgetEntryView()
+        HelloWidgetEntryView()
             .previewContext(
                 WidgetPreviewContext(family: .systemSmall)
             )

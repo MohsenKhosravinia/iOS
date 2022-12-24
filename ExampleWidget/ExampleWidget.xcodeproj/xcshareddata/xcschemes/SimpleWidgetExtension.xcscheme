@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8F38EA3F2947641B00600931"
-               BuildableName = "SimpleWidgetExtension.appex"
-               BlueprintName = "SimpleWidgetExtension"
+               BuildableName = "HelloWidgetExtension.appex"
+               BlueprintName = "HelloWidgetExtension"
                ReferencedContainer = "container:ExampleWidget.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
