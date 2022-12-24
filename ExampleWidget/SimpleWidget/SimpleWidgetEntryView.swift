@@ -6,23 +6,28 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct SimpleWidgetEntryView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Hello")
                 .foregroundColor(.mint)
-                .font(.body)
+                .font(.title2)
+                .fontWeight(.bold)
             
             Text("Mohsen!!!")
                 .foregroundColor(.primary)
-                .font(.caption)
+                .font(.title2)
         }
     }
 }
 
-struct SimpleWidgetView_Previews: PreviewProvider {
+struct SimpleWidget_Previews: PreviewProvider {
     static var previews: some View {
         SimpleWidgetEntryView()
+            .previewContext(
+                WidgetPreviewContext(family: .systemSmall)
+            )
     }
 }

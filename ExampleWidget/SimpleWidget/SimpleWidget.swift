@@ -19,17 +19,9 @@ struct SimpleWidget: Widget {
         ) { _ in
             SimpleWidgetEntryView()
         }
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
         .configurationDisplayName("Simple Widget")
         .description("This is an example widget.")
+        
     }
 }
-
-struct SimpleWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        SimpleWidgetEntryView()
-            .previewContext(
-                WidgetPreviewContext(family: .systemSmall)
-            )
-    }
-}
-
