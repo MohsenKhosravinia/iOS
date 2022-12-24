@@ -1,6 +1,6 @@
 //
 //  HelloWidgetTimelineProvider.swift
-//  SimpleWidgetExtension
+//  HelloWidgetExtension
 //
 //  Created by Mohsen Khosravinia on 12/12/22.
 //

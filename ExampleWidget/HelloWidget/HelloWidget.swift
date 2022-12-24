@@ -8,9 +8,8 @@
 import WidgetKit
 import SwiftUI
 
-@main
 struct HelloWidget: Widget {
-    let kind = "com.khosravinia.mohsen.simple.widget"
+    let kind = "com.khosravinia.mohsen.hello.widget"
     
     var body: some WidgetConfiguration {
         StaticConfiguration(
@@ -20,8 +19,7 @@ struct HelloWidget: Widget {
             HelloWidgetEntryView()
         }
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
-        .configurationDisplayName("Simple Widget")
-        .description("This is an example widget.")
-        
+        .configurationDisplayName("Hello Widget")
+        .description("This is a simple widget.")
     }
 }
