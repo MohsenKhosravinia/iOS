@@ -129,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				8F4439ED295731770073955B /* ExampleWidgetBundle.swift */,
+				8F4439E3295724570073955B /* DateTimeWidget */,
+				8F38EA462947641B00600931 /* HelloWidget */,
 			);
 			path = WidgetGroup;
 			sourceTree = "<group>";
@@ -138,8 +140,6 @@
 			children = (
 				8FA7D1FD29475CCF008D7738 /* ExampleWidget */,
 				8F4439EC295731370073955B /* WidgetGroup */,
-				8F38EA462947641B00600931 /* HelloWidget */,
-				8F4439E3295724570073955B /* DateTimeWidget */,
 				8F38EA412947641B00600931 /* Frameworks */,
 				8FA7D1FC29475CCF008D7738 /* Products */,
 			);
