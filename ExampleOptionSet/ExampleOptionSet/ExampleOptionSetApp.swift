@@ -12,7 +12,7 @@ struct ExampleOptionSetApp: App {
     var body: some Scene {
         WindowGroup {
             ShippingView(
-                viewModel: ShippingViewModel(types: ShippingOptions.all)
+                viewModel: ShippingViewModel(types: [.ship, .airplane])
             )
         }
     }

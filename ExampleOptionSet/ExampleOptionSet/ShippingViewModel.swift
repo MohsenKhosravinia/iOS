@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 final class ShippingViewModel: ObservableObject {
     @Published public var items: [String] = []
     
